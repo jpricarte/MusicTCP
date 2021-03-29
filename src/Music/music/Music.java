@@ -1,4 +1,4 @@
-package Music;
+package Music.music;
 
 public abstract class Music {
 

@@ -1,8 +1,10 @@
-package Music;
+package Music.musicPlayer;
 
 
 import org.jfugue.midi.MidiDictionary;
 import org.jfugue.player.Player;
+
+import Music.music.MusicJFugue;
 
 import java.io.File;
 import java.io.IOException;

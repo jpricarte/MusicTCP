@@ -1,4 +1,6 @@
-package Music;
+package Music.music;
+
+import Music.conversor.TextConversor;
 
 public class MusicJFugue extends Music {
     public String music;

@@ -1,4 +1,4 @@
-package Music;
+package Music.Enums;
 
 import java.util.Random;
 
