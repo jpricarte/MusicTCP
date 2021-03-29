@@ -2,12 +2,14 @@ package Music.music;
 
 public abstract class Music {
 
-    private final int MAX_VOLUME = 127;
+    protected final int MAX_VOLUME = 127;
+    protected static final String PAUSE = " R";
+    protected static final int OCTAVE_SIZE = 12;
 
-    private int initialOctave;
-    private int initialBPM;
-    private int initialVolume;
-    private int initialInstrument;
+    protected int initialOctave;
+    protected int initialBPM;
+    protected int initialVolume;
+    protected int initialInstrument;
 
     public Music(int initialOctave, int initialInstrument, int initialBPM, int initialVolume) {
         this.initialOctave = initialOctave;
