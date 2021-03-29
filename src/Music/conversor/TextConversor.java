@@ -20,7 +20,6 @@ public class TextConversor {
     public String convert(String raw_text) {
         String musicado_text = raw_text.toUpperCase();
         musicado_text = cleanString(musicado_text);
-        musicado_text = addPauses(musicado_text);
 
         List<String> tokens = tokenizeMusic(musicado_text);
         for (String string : tokens) {
@@ -40,14 +39,24 @@ public class TextConversor {
     private List<String> tokenizeMusic(String text) {
         List<String> tokens = new ArrayList<String>();
         while (text.length() > 0){
+            
+            boolean flag=false;
+
             for (String word : words) {
+            
                 if (text.startsWith(word)){
+            
                     tokens.add(word);
                     text = text.substring(word.length());
+                    flag=true;
                     break;
                 }
             }
-            text = text.substring(1);
+
+            if (!flag) {
+                text = text.substring(1);
+            }
+            
         }
         return tokens;
     }
@@ -57,7 +66,7 @@ public class TextConversor {
         return text.replaceAll("[^-+ OIUT?.\nA-G0-9]+","");
     }
     public static void main(String[] args) throws Exception {
-        String ins = "' q a b 43244 - + 96 TCP IP OIU -+ OIUT?.\nA-G0-9'";
+        String ins = " q a b 43244 - + 96 TCP IP OIU -+ OIUT?.\nA-G0-9";
         System.out.println(ins);
         TextConversor c = new TextConversor();
         System.out.println(c.convert(ins));
