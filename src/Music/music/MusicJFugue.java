@@ -13,6 +13,13 @@ public class MusicJFugue extends Music {
 
         music = textConversor.convert(raw_text);
     }
+    
+    // For Tests, because I can't use Mockito 
+    public MusicJFugue(String music) {
+        super(5, 0, 120, 64);
+        this.music = music;
+
+    }
 
     public String toJFuguePlayableString() {
         return music;

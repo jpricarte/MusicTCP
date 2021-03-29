@@ -34,5 +34,9 @@ public class MusicPlayer {
 
     void saveMusic(String filename){
     }     // salva a música
+    
+    public String getMusic() {
+    	return this.music;
+    }
 
 }
