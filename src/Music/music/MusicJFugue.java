@@ -29,20 +29,34 @@ public class MusicJFugue extends Music {
     public void initializeMusic() {
         music = "I" + initialInstrument;
         music += " T" + initialBPM;
-        music += " :CON(7," + initialVolume+") ";
+        music += " :CON(7," + initialVolume+")";
     }
 
     public void insertNote(NoteEnum note) {
-        int convertedOctave = 12*currentOctave;
-        music += " " + (convertedOctave + note.noteValue);
+        if (note == NoteEnum.REST) {
+            music += " " + ((char) note.noteValue);
+        } else {
+            int convertedOctave = 12 * currentOctave;
+            music += " " + (convertedOctave + note.noteValue);
+        }
         currentNote = note;
     };
 
     public void insertRandomNote() {
-        NoteEnum.randomNote();
-        int convertedOctave = 12*currentOctave;
-        music += " " + (convertedOctave + currentNote.noteValue);
-        
+        insertNote( NoteEnum.randomNote() );
+    }
+
+    public void insertRest(){
+        insertNote(NoteEnum.REST);
+    }
+
+    public void repeatNote(){
+        if (currentNote == NoteEnum.REST) {
+            insertRest();
+        }
+        else {
+            insertNote(currentNote);
+        }
     }
 
     public void increaseBPM(){
@@ -65,30 +79,17 @@ public class MusicJFugue extends Music {
 
     public void increaseVolume(){
         currentVolume = Math.min(127, 2*currentVolume);
-        music += " :CON(7," + currentVolume + ") ";
+        music += " :CON(7," + currentVolume + ")";
     }
 
     public void decreaseVolume(){
-
+        currentVolume = Math.max(0, (int) (0.5 * currentVolume));
+        music += " :CON(7," + currentVolume + ")";
     }
 
     public void resetVolume() {
         currentVolume = initialVolume;
-        music += " :CON(7," + initialVolume+") ";
-    }
-
-    public void insertRest(){
-        music += " R";
-        currentNote = NoteEnum.REST;
-    }
-
-    public void repeatNote(){
-        if (currentNote == NoteEnum.REST) {
-            insertRest();
-        }
-        else {
-            insertNote(currentNote);
-        }
+        music += " :CON(7," + initialVolume+")";
     }
 
     public void chooseRandomInstrument() {
@@ -106,6 +107,11 @@ public class MusicJFugue extends Music {
         music += " I"+currentInstrument;
     }
 
+    /*
+    * Jordi: Recomendo refatorar essa classe para receber uma lista de InstructionEnum
+    *   Assim, ele não fica dependente do texto, e pode ser extendido para outras
+    *   classes
+    * */
     public String toJFuguePlayableString(String text) {
         TextTokenizer textTokenizer = new TextTokenizer(text);
         List<InstructionEnum>tokensList = textTokenizer.getTokens();
