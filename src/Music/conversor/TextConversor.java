@@ -7,12 +7,6 @@ import Music.Enums.NoteEnum;
 import Music.Enums.InstructionEnum;
 
 public class TextConversor {
-    private static final String PAUSE = " R";
-    private int currentOctave;      // oitava do momento
-    private int currentInstrument;  // instrumento atual (primeiramente escolhido pelo tal do usuário)
-    private int currentVolume;      // volume atual da música
-    private int currentBpm;         // BPM atual (primeiramente escolhido pelo tal do usuário)
-    private NoteEnum currentNote;   //nota atual
 
     public String convert(String raw_text) {
         String musicado_text = raw_text.toUpperCase();
