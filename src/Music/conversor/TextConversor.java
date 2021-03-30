@@ -12,7 +12,7 @@ public class TextConversor {
         String musicado_text = raw_text.toUpperCase();
         List<InstructionEnum> tokens = tokenizeMusic(musicado_text);
     
-        musicado_text = convertNotes(musicado_text);
+        tokens = convertTokens(tokens);
 
         /*
         musicado_text = setBpms(musicado_text);
@@ -21,6 +21,15 @@ public class TextConversor {
         return musicado_text;
     }
 
+    private List<InstructionEnum> convertTokens(List<InstructionEnum> tokens) {
+        for (InstructionEnum instruction : tokens) {
+            switch(instruction){
+                case BPM_UP:
+                    
+            }
+        }
+        return tokens;
+    }
 
     private List<InstructionEnum> tokenizeMusic(String text) {
         List<InstructionEnum> tokens = new ArrayList<InstructionEnum>();
@@ -55,7 +64,10 @@ public class TextConversor {
     }
 
     // Passo 3: conversão das notas nas oitavas certas
-    private String convertNotes(String text) {
+    private InstructionEnum convertNotes(InstructionEnum tokens) {
+        for (InstructionEnum element : InstructionEnum.values()) {
+            if (element)
+        }
         text.replace(".", " "+Integer.toString(NoteEnum.randomNote().noteValue + currentOctave));
         text.replace("?", " "+Integer.toString(NoteEnum.randomNote().noteValue + currentOctave));
 
