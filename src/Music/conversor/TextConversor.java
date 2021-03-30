@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.List;
 import java.util.ArrayList;
 import Music.Enums.NoteEnum;
+import Music.Enums.InstructionEnum;
 
 public class TextConversor {
     private static final String PAUSE = " R";
@@ -12,23 +13,14 @@ public class TextConversor {
     private int currentVolume;      // volume atual da música
     private int currentBpm;         // BPM atual (primeiramente escolhido pelo tal do usuário)
     private NoteEnum currentNote;   //nota atual
-    List<String> words = List.of(
-        "BPM+", "BPM-", "T+", "T-", "+", "-",
-        "A", "B", "C", "D", "E", "F", "G",
-        " ", "O", "U", "I", "?", ".", "\n");
 
     public String convert(String raw_text) {
         String musicado_text = raw_text.toUpperCase();
-        musicado_text = cleanString(musicado_text);
-
-        List<String> tokens = tokenizeMusic(musicado_text);
-        for (String string : tokens) {
-            System.out.println("'" + string + "'");
-        }
+        List<InstructionEnum> tokens = tokenizeMusic(musicado_text);
+    
+        musicado_text = convertNotes(musicado_text);
 
         /*
-        
-        musicado_text = convertNotes(musicado_text);
         musicado_text = setBpms(musicado_text);
         musicado_text = setInstruments(musicado_text);
         musicado_text = setVolume(musicado_text);*/
@@ -36,37 +28,28 @@ public class TextConversor {
     }
 
 
-    private List<String> tokenizeMusic(String text) {
-        List<String> tokens = new ArrayList<String>();
+    private List<InstructionEnum> tokenizeMusic(String text) {
+        List<InstructionEnum> tokens = new ArrayList<InstructionEnum>();
         while (text.length() > 0){
-            
             boolean flag=false;
-
-            for (String word : words) {
-            
+            for (InstructionEnum instruction : InstructionEnum.values()) {
+                String word = instruction.getValue();
                 if (text.startsWith(word)){
-            
-                    tokens.add(word);
+                    tokens.add(instruction);
                     text = text.substring(word.length());
                     flag=true;
                     break;
                 }
             }
-
             if (!flag) {
                 text = text.substring(1);
             }
-            
         }
         return tokens;
     }
 
-    // Passo 1: remover todas os caracteres que não importam
-    private String cleanString(String text) {
-        return text.replaceAll("[^-+ OIUT?.\nA-G0-9]+","");
-    }
     public static void main(String[] args) throws Exception {
-        String ins = " q a b 43244 - + 96 TCP IP OIU -+ OIUT?.\nA-G0-9";
+        String ins = " q a b 43244 - + 96 TBPM-BPM+CP IP T+ T+ T- OIU -+ OIUT?.A-G0-9";
         System.out.println(ins);
         TextConversor c = new TextConversor();
         System.out.println(c.convert(ins));
