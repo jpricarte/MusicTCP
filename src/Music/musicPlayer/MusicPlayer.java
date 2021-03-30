@@ -1,42 +1,31 @@
 package Music.musicPlayer;
 
-
-import org.jfugue.midi.MidiDictionary;
 import org.jfugue.player.Player;
 
 import Music.music.MusicJFugue;
 
-import java.io.File;
-import java.io.IOException;
-
 public class MusicPlayer {
 
     private Player player;
-    private String music;
+    private MusicJFugue music;
 
     public MusicPlayer() {
         player = new Player();
-        music="";
-    }
-
-    public MusicPlayer(String music) {
-        player = new Player();
-        this.music = music;
+        music = new MusicJFugue(6, 14, 80, 32);
     }
 
     void setMusic(MusicJFugue music) {
-        this.music = music.toJFuguePlayableString();
+        this.music = music;
     }
 
     void playMusic(){
-        player.play(music);
+        String m = music.getMusic();
+        player.play(m);
     }             // toca a música
 
     void saveMusic(String filename){
     }     // salva a música
     
-    public String getMusic() {
-    	return this.music;
-    }
+    
 
 }

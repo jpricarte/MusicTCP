@@ -13,7 +13,7 @@ public abstract class Music {
 
     public Music(int initialOctave, int initialInstrument, int initialBPM, int initialVolume) {
         this.initialOctave = initialOctave;
-        this.initialInstrument = (int) (initialInstrument * 0.20);
+        this.initialInstrument = initialInstrument;
         this.initialBPM = initialBPM;
         this.initialVolume = initialVolume;
     }
