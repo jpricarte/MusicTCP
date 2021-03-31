@@ -7,14 +7,14 @@ public enum InstructionEnum {
     PAUSE(" "), RANDOM_NOTE_1("?"), RANDOM_NOTE_2("."),
     REPEAT_NOTE_1("O"), REPEAT_NOTE_2("U"), REPEAT_NOTE_3("I"),;
 
-    private String instuctionValue;
+    private String instructionValue;
 
     InstructionEnum(String value) {
-        this.instuctionValue = value;
+        this.instructionValue = value;
     }
 
     public String getValue(){
-        return this.instuctionValue;
+        return this.instructionValue;
     }
 
 }

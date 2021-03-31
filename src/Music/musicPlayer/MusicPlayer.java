@@ -9,21 +9,21 @@ public class MusicPlayer {
     private Player player;
     private MusicJFugue music;
 
-    public MusicPlayer() {
+    public MusicPlayer(int initialOctave, int initialInstrument, int initialBPM, int initialVolume) {
         player = new Player();
-        music = new MusicJFugue(6, 14, 80, 32);
+        music = new MusicJFugue(initialOctave, initialInstrument, initialBPM, initialVolume);
     }
 
-    void setMusic(MusicJFugue music) {
+    public void setMusic(MusicJFugue music) {
         this.music = music;
     }
 
-    void playMusic(){
+    public void playMusic(){
         String m = music.getMusic();
         player.play(m);
     }             // toca a música
 
-    void saveMusic(String filename){
+    public void saveMusic(String filename){
     }     // salva a música
     
     
