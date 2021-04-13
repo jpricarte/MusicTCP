@@ -1,31 +1,35 @@
 package Music.musicPlayer;
 
+import org.jfugue.midi.MidiFileManager;
+import org.jfugue.pattern.Pattern;
 import org.jfugue.player.Player;
 
-import Music.music.MusicJFugue;
+import java.io.File;
+import java.io.IOException;
+
 
 public class MusicPlayer {
 
     private Player player;
-    private MusicJFugue music;
+    private Pattern music;
 
-    public MusicPlayer(int initialOctave, int initialInstrument, int initialBPM, int initialVolume) {
+    public MusicPlayer() {
         player = new Player();
-        music = new MusicJFugue(initialOctave, initialInstrument, initialBPM, initialVolume);
     }
 
-    public void setMusic(MusicJFugue music) {
+    public void setMusic(Pattern music) {
         this.music = music;
     }
 
     public void playMusic(){
-        String m = music.getMusic();
-        player.play(m);
+        player.play(music);
     }             // toca a música
 
-    public void saveMusic(String filename){
+    public void saveMusic(String filename) throws IOException {
+        final File newFile = new File("./" + filename + ".midi");
+        MidiFileManager.savePatternToMidi(music, newFile);
     }     // salva a música
-    
-    
+
+
 
 }

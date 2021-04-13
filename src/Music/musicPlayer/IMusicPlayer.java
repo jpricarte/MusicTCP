@@ -1,9 +1,9 @@
 package Music.musicPlayer;
 
-import Music.music.MusicJFugue;
+import org.jfugue.pattern.Pattern;
 
 public interface IMusicPlayer {
-    public void setMusic(MusicJFugue music);
+    public void setMusic(Pattern music);
 
     public void playMusic();
 

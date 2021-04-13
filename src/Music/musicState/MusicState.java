@@ -28,22 +28,30 @@ public class MusicState {
     private int currentBPM;
     private int currentInstrument;
     private NoteEnum currentNote;
-    
-    public MusicState(){
+
+    {
         min_volume = 0;
         max_volume = 127;
-        step_factor_volume = 2.0;
-        default_volume = 32;
+
         min_octave = 1;
         max_octave = 9;
-        step_octave = 1;
-        default_octave = 1;
+
         min_BPM = 50;
         max_BPM = 250;
+
+        step_factor_volume = 2.0;
         step_BPM = 50;
-        default_BPM = 80;
-        currentInstrument = 0;
+        step_octave = 1;
+
         currentNote = NoteEnum.NONE;
+    }
+    
+    public MusicState(){
+        default_volume = 32;
+        default_octave = 5;
+        default_BPM = 80;
+
+        currentInstrument = 0;
         currentOctave = default_octave;
         currentVolume = default_volume;
         currentBPM = default_BPM;
@@ -92,6 +100,7 @@ public class MusicState {
         step_BPM = step_bpm;
         default_BPM = default_bpm;
     }
+
     public void setInstrumentConstraints(int[] instruments, int default_inst) {
         if (instruments.length == 0)
             throw new IllegalArgumentException("needs to specify at least one instrument!");
@@ -105,6 +114,23 @@ public class MusicState {
         if (!default_in_array)
             throw new IllegalArgumentException("default has to be in array!");
         instrument_list = instruments;
+        default_instrument = default_inst;
+        currentInstrument = default_inst;
+    }
+
+    public void setInstrumentConstraints(int initial_inst, int final_inst, int default_inst) {
+
+        int inst_array_length = final_inst-initial_inst;
+        int[] inst_array = new int[inst_array_length];
+
+        if (initial_inst < 0 || final_inst > 127)
+            throw new IllegalArgumentException("Instruments range is out of MIDI range!");
+
+        for (int i=0; i<inst_array_length; i++) {
+            inst_array[i] = initial_inst + i;
+        }
+
+        instrument_list = inst_array;
         default_instrument = default_inst;
         currentInstrument = default_inst;
     }
@@ -125,7 +151,7 @@ public class MusicState {
         if (currentNote == NoteEnum.NONE)
             return NO_NOTE;
         else
-            return (currentNote.getValue() + currentOctave);
+            return (currentNote.getValue() + (OCTAVE_SIZE*currentOctave));
     }
     public void setOctave(int octave) {
         if (octave <= max_octave && octave >= min_octave)
