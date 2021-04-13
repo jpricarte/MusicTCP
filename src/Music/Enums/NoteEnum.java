@@ -1,18 +1,15 @@
 package Music.Enums;
 
-import java.util.Random;
-
 public enum NoteEnum {
-    DO(0), RE(2), MI(4), FA(5), SOL(7), LA(9), SI(11), REST('R');
+    C(0), D(2), E(4), F(5), G(7), A(9), B(11), NONE(-1);
 
-    public int noteValue;
+    private int noteValue;
 
     NoteEnum(int value) {
-        noteValue=value;
+        noteValue = value;
     }
 
-    public static NoteEnum randomNote(){
-        int x = new Random().nextInt(NoteEnum.class.getEnumConstants().length);
-        return NoteEnum.class.getEnumConstants()[x];
+    public int getValue() {
+        return noteValue;
     }
 }
