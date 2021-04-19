@@ -14,7 +14,11 @@ public class Music {
     private String musicText;
 
     public Music(int initialOctave, int initialVolume, int intialBPM, int initialInstrument) {
-        // Fazer depois
+        musicState = new MusicState();
+        musicState.setInstrumentConstraints(0,127,65);
+        musicText = "I"+musicState.getInstrument();
+        musicText = " T"+musicState.getBPM();
+        musicText = " CON(7,"+musicState.getVolume()+")";
     }
 
     public Music() {
