@@ -55,6 +55,7 @@ public class MusicState {
         currentOctave = default_octave;
         currentVolume = default_volume;
         currentBPM = default_BPM;
+        instrument_list = getInstrumentRange(0, 127);
     }
 
     public void setVolumeConstraints(int min_vol, int max_vol, int step_fact_vol, int default_vol) {
@@ -119,18 +120,7 @@ public class MusicState {
     }
 
     public void setInstrumentConstraints(int initial_inst, int final_inst, int default_inst) {
-
-        int inst_array_length = final_inst-initial_inst;
-        int[] inst_array = new int[inst_array_length];
-
-        if (initial_inst < 0 || final_inst > 127)
-            throw new IllegalArgumentException("Instruments range is out of MIDI range!");
-
-        for (int i=0; i<inst_array_length; i++) {
-            inst_array[i] = initial_inst + i;
-        }
-
-        instrument_list = inst_array;
+        instrument_list = getInstrumentRange(initial_inst, final_inst);
         default_instrument = default_inst;
         currentInstrument = default_inst;
     }
@@ -223,5 +213,16 @@ public class MusicState {
     }
     public void setRandomInstrument() {
         currentInstrument = new Random().nextInt(instrument_list.length);
+    }
+
+    private int[] getInstrumentRange(int first, int last) {
+        int inst_array_length = last-first;
+        int[] inst_array = new int[inst_array_length];
+        if (first < 0 || last > 127)
+            throw new IllegalArgumentException("Instruments range is out of MIDI range!");
+        for (int i=0; i<inst_array_length; i++) {
+            inst_array[i] = first + i;
+        }
+        return inst_array;
     }
 }
