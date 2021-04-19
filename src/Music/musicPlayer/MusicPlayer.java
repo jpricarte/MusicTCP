@@ -23,12 +23,12 @@ public class MusicPlayer {
 
     public void playMusic(){
         player.play(music);
-    }             // toca a música
+    }   // toca a música
 
     public void saveMusic(String filename) throws IOException {
         final File newFile = new File("./" + filename + ".midi");
         MidiFileManager.savePatternToMidi(music, newFile);
-    }     // salva a música
+    }   // salva a música
 
 
 

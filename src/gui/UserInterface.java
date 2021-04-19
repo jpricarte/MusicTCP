@@ -22,6 +22,7 @@ public class UserInterface {
     private JButton saveMusicButton;
     private JButton importTextButton;
     private JTextArea textArea;
+    private JSpinner octaveSelector;
 
     private MusicPlayer musicPlayer;
     private Music music;
@@ -38,16 +39,25 @@ public class UserInterface {
         int volume = volumeSelector.getValue();
         int instrument = (int) instrumentSelector.getValue();
         int bpm = (int) bpmSelector.getValue();
+        int octave = (int) octaveSelector.getValue();
         String text = textArea.getText();
 
-        music = new Music(5, volume, bpm, instrument);
+        music = new Music(octave, volume, bpm, instrument);
         Pattern musicPattern = music.getMusicPatternFromText(text);
 
         musicPlayer.setMusic(musicPattern);
+        playMusicButton.setEnabled(true);
     }
 
     private void playMusic() {
-        musicPlayer.playMusic();
+        Runnable playMusicThread = new Runnable() {
+            @Override
+            public void run() {
+                musicPlayer.playMusic();
+            }
+        };
+
+        new Thread(playMusicThread).start();
     }
 
     private void createUIComponents() {
@@ -57,6 +67,9 @@ public class UserInterface {
 
         bpmSelector = new JSpinner();
         bpmSelector.setModel(new SpinnerNumberModel(110, 0, 255,1));
+
+        octaveSelector = new JSpinner();
+        octaveSelector.setModel(new SpinnerNumberModel(5, 0, 9, 1));
 
         volumeSelector = new JSlider(0,127,63);
     }
@@ -72,6 +85,7 @@ public class UserInterface {
         frame.setContentPane(ui.getjPanel());
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.pack();
+        frame.setTitle("MusicFlow");
         frame.setVisible(true);
     }
 }
