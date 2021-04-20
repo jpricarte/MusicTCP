@@ -13,16 +13,27 @@ public class Music {
     private MusicState musicState;
     private String musicText;
 
-    public Music(int initialOctave, int initialVolume, int intialBPM, int initialInstrument) {
-        // Fazer depois
+    public Music(int initialOctave, int initialVolume, int initialBPM, int initialInstrument) {
+        musicState = new MusicState();
+
+        musicState.setInstrumentConstraints(0,127,initialInstrument);
+        musicState.setInstrument(initialInstrument);
+
+        musicState.setBPM(initialBPM);
+        musicState.setOctave(initialOctave);
+        musicState.setVolume(initialVolume);
+
+        musicText = "I"+musicState.getInstrument();
+        musicText += " T"+musicState.getBPM();
+        musicText += " CON(7,"+musicState.getVolume()+")";
     }
 
     public Music() {
         musicState = new MusicState();
         musicState.setInstrumentConstraints(0,127,65);
         musicText = "I"+musicState.getInstrument();
-        musicText = " T"+musicState.getBPM();
-        musicText = " CON(7,"+musicState.getVolume()+")";
+        musicText += " T"+musicState.getBPM();
+        musicText += " CON(7,"+musicState.getVolume()+")";
     }
 
     private void tokenizeMusic(String rawText) {

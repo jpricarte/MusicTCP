@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="gui.UserInterface">
-  <grid id="27dc6" layout-manager="GridLayoutManager" row-count="9" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="jPanel" layout-manager="GridLayoutManager" row-count="9" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
       <xy x="20" y="20" width="500" height="400"/>
@@ -8,23 +8,17 @@
     <properties/>
     <border type="none"/>
     <children>
-      <component id="3420e" class="javax.swing.JButton" binding="gerarMúsicaButton" default-binding="true">
+      <component id="3420e" class="javax.swing.JButton" binding="generateMusicButton">
         <constraints>
-          <grid row="4" column="3" row-span="2" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="4" row-span="2" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Gerar Música"/>
         </properties>
       </component>
-      <component id="81986" class="javax.swing.JSpinner" binding="spinner2" default-binding="true">
-        <constraints>
-          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties/>
-      </component>
       <component id="4fff8" class="javax.swing.JLabel">
         <constraints>
-          <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="BPM"/>
@@ -40,19 +34,20 @@
       </component>
       <component id="6b847" class="javax.swing.JProgressBar" binding="progressBar1" default-binding="true">
         <constraints>
-          <grid row="7" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="7" column="1" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
       </component>
-      <component id="9010d" class="javax.swing.JButton" binding="tocarButton" default-binding="true">
+      <component id="9010d" class="javax.swing.JButton" binding="playMusicButton">
         <constraints>
           <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <enabled value="false"/>
           <text value="Tocar"/>
         </properties>
       </component>
-      <component id="6c85d" class="javax.swing.JSlider" binding="slider1" default-binding="true">
+      <component id="6c85d" class="javax.swing.JSlider" binding="volumeSelector" custom-create="true">
         <constraints>
           <grid row="5" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -66,7 +61,7 @@
           <text value="Volume"/>
         </properties>
       </component>
-      <component id="80fe0" class="javax.swing.JSpinner" binding="spinner1" default-binding="true">
+      <component id="80fe0" class="javax.swing.JSpinner" binding="instrumentSelector" custom-create="true">
         <constraints>
           <grid row="3" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -85,17 +80,17 @@
           <text value="Texto"/>
         </properties>
       </component>
-      <component id="3ae90" class="javax.swing.JButton" binding="salvarMúsicaButton" default-binding="true">
+      <component id="3ae90" class="javax.swing.JButton" binding="saveMusicButton">
         <constraints>
-          <grid row="8" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="8" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Salvar Música"/>
         </properties>
       </component>
-      <component id="80c73" class="javax.swing.JButton" binding="importarTextoButton" default-binding="true">
+      <component id="80c73" class="javax.swing.JButton" binding="importTextButton">
         <constraints>
-          <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Importar Texto"/>
@@ -108,17 +103,37 @@
       </vspacer>
       <scrollpane id="9135b">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="4" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="0" row-span="1" col-span="5" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
         <border type="none"/>
         <children>
-          <component id="1b0fe" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
+          <component id="1b0fe" class="javax.swing.JTextArea" binding="textArea">
             <constraints/>
             <properties/>
           </component>
         </children>
       </scrollpane>
+      <component id="81986" class="javax.swing.JSpinner" binding="bpmSelector" custom-create="true">
+        <constraints>
+          <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="2a32" class="javax.swing.JSpinner" binding="octaveSelector" custom-create="true">
+        <constraints>
+          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="ab68b" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Oitava"/>
+        </properties>
+      </component>
     </children>
   </grid>
 </form>
