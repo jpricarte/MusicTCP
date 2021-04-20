@@ -3,55 +3,6 @@ package Music.Enums;
 import Music.musicState.MusicState;
 
 public enum InstructionEnum {
-    BPM_UP(new String[]{"BPM+"}) {
-        @Override
-        public String getTranslation(MusicState state){
-            state.increaseBPM();
-            return " T" + state.getBPM();
-        }
-    },
-    BPM_DOWN(new String[]{"BPM-"}) {
-        @Override
-        public String getTranslation(MusicState state){
-            state.decreaseBPM();
-            return " T" + state.getBPM();
-        }
-    },
-    OCTAVE_UP(new String[]{"T+"}) {
-        @Override
-        public String getTranslation(MusicState state){
-            state.increaseOctave();
-            return "";
-        }
-    },
-    OCTAVE_DOWN(new String[]{"T-"}) {
-        @Override
-        public String getTranslation(MusicState state){
-            state.decreaseOctave();
-            return "";
-        }
-    }, 
-    VOL_UP(new String[]{"+"}) {
-        @Override
-        public String getTranslation(MusicState state){
-            state.increaseVolume();
-            return " :CON(7," + state.getVolume()+")";
-        }
-    },
-    VOL_DOWN(new String[]{"-"}) {
-        @Override
-        public String getTranslation(MusicState state){
-            state.decreaseVolume();
-            return " :CON(7," + state.getVolume()+")";
-        }
-    },
-    CHANGE_INSTRUMENT(new String[]{"\n"}) {
-        @Override
-        public String getTranslation(MusicState state){
-            state.nextInstrument();
-            return " I" + state.getInstrument();
-        }
-    },
     A(new String[]{"A"}) {
         @Override
         public String getTranslation(MusicState state){
@@ -101,20 +52,13 @@ public enum InstructionEnum {
             return " " + state.getNote();
         }
     },
-    PAUSE(new String[]{" "}) {
-        @Override
-        public String getTranslation(MusicState state){
-            return " R";
-        }
-    },
-    RANDOM_NOTE(new String[]{"?", "."}) {
-        @Override
-        public String getTranslation(MusicState state){
-            state.setRandomNote();
-            return " " + state.getNote();
-        }
-    },
-    REPEAT_NOTE(new String[]{"O", "U", "I"}) {
+    REPEAT_NOTE(new String[]{
+            "a", "b", "c", "d", "e", "f", "g", "h",
+            "j", "k", "l", "m", "n", "p", "q", "r",
+            "s", "t", "v", "w", "x", "y", "z", "H",
+            "J", "K", "L", "M", "N", "P", "Q", "R",
+            "S", "T", "V", "W", "X", "Y", "Z"
+    }) {
         @Override
         public String getTranslation(MusicState state){
             if (state.getNote() == MusicState.NO_NOTE)
@@ -122,9 +66,129 @@ public enum InstructionEnum {
             else
                 return " " + state.getNote();
         }
+    },
+    VOL_UP(new String[]{" "}) {
+        @Override
+        public String getTranslation(MusicState state){
+            state.increaseVolume();
+            return " :CON(7," + state.getVolume()+")";
+        }
+    },
+    CHANGE_TO_AGOGO(new String[]{"!"}) {
+      @Override
+      public String getTranslation(MusicState state){
+          state.setInstrument(114);
+          return " I" + state.getInstrument();
+      }
+    },
+    CHANGE_TO_HARPSICHORD(new String[]{"O", "o", "I", "i", "U", "u"}) {
+        @Override
+        public String getTranslation(MusicState state){
+            state.setInstrument(7);
+            return " I" + state.getInstrument();
+        }
+    },
+    INCREMENT_1_INSTRUMENT(new String[]{"\n"}) {
+        @Override
+        public String getTranslation(MusicState state){
+            state.nextInstrument();
+            return " I" + state.getInstrument();
+        }
+    },
+    INCREMENT_2_INSTRUMENT(new String[]{"\n"}) {
+        @Override
+        public String getTranslation(MusicState state){
+            for(int instrument = 0; instrument < 2; instrument++)
+                state.nextInstrument();
+            return " I" + state.getInstrument();
+        }
+    },
+    INCREMENT_3_INSTRUMENT(new String[]{"\n"}) {
+        @Override
+        public String getTranslation(MusicState state){
+            for(int instrument = 0; instrument < 3; instrument++)
+                state.nextInstrument();
+            return " I" + state.getInstrument();
+        }
+    },
+    INCREMENT_4_INSTRUMENT(new String[]{"\n"}) {
+        @Override
+        public String getTranslation(MusicState state){
+            for(int instrument = 0; instrument < 4; instrument++)
+                state.nextInstrument();
+            return " I" + state.getInstrument();
+        }
+    },
+    INCREMENT_5_INSTRUMENT(new String[]{"\n"}) {
+        @Override
+        public String getTranslation(MusicState state){
+            for(int instrument = 0; instrument < 5; instrument++)
+                state.nextInstrument();
+            return " I" + state.getInstrument();
+        }
+    },
+    INCREMENT_6_INSTRUMENT(new String[]{"\n"}) {
+        @Override
+        public String getTranslation(MusicState state){
+            for(int instrument = 0; instrument < 6; instrument++)
+                state.nextInstrument();
+            return " I" + state.getInstrument();
+        }
+    },
+    INCREMENT_7_INSTRUMENT(new String[]{"\n"}) {
+        @Override
+        public String getTranslation(MusicState state){
+            for(int instrument = 0; instrument < 7; instrument++)
+                state.nextInstrument();
+            return " I" + state.getInstrument();
+        }
+    },
+    INCREMENT_8_INSTRUMENT(new String[]{"\n"}) {
+        @Override
+        public String getTranslation(MusicState state){
+            for(int instrument = 0; instrument < 8; instrument++)
+                state.nextInstrument();
+            return " I" + state.getInstrument();
+        }
+    },
+    INCREMENT_9_INSTRUMENT(new String[]{"\n"}) {
+        @Override
+        public String getTranslation(MusicState state){
+            for(int instrument = 0; instrument < 9; instrument++)
+                state.nextInstrument();
+            return " I" + state.getInstrument();
+        }
+    },
+    OCTAVE_UP(new String[]{"?", "."}) {
+        @Override
+        public String getTranslation(MusicState state){
+            state.increaseOctave();
+            return "";
+        }
+    },
+    CHANGE_TO_TUBULAR_BELLS(new String[]{"\n"}) {
+        @Override
+        public String getTranslation(MusicState state){
+            state.setInstrument(15);
+            return " I" + state.getInstrument();
+        }
+    },
+    CHANGE_TO_PAN_FLUE(new String[]{";"}) {
+        @Override
+        public String getTranslation(MusicState state){
+            state.setInstrument(76);
+            return " I" + state.getInstrument();
+        }
+    },
+    CHANGE_TO_CHURCH_ORGAN(new String[]{","}) {
+        @Override
+        public String getTranslation(MusicState state){
+            state.setInstrument(20);
+            return " I" + state.getInstrument();
+        }
     };
 
-    private String[] instructionValue;
+    private final String[] instructionValue;
 
     InstructionEnum(String[] value) {
         this.instructionValue = value;
