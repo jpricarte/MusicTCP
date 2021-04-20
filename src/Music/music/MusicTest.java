@@ -42,8 +42,6 @@ public class MusicTest extends Music {
         assertEquals(BASE_PERSONALIZED_STRING, personalizedMusic.musicText);
     }
 
-    // TODO: Update InstructionEnum to use the new definition
-    @Disabled
     @Test
     public void testTokenizeMusic() {
         music.tokenizeMusic("AB C");
