@@ -88,14 +88,14 @@ public enum InstructionEnum {
             return " I" + state.getInstrument();
         }
     },
-    INCREMENT_1_INSTRUMENT(new String[]{"\n"}) {
+    INCREMENT_1_INSTRUMENT(new String[]{"1"}) {
         @Override
         public String getTranslation(MusicState state){
             state.nextInstrument();
             return " I" + state.getInstrument();
         }
     },
-    INCREMENT_2_INSTRUMENT(new String[]{"\n"}) {
+    INCREMENT_2_INSTRUMENT(new String[]{"2"}) {
         @Override
         public String getTranslation(MusicState state){
             for(int instrument = 0; instrument < 2; instrument++)
@@ -103,7 +103,7 @@ public enum InstructionEnum {
             return " I" + state.getInstrument();
         }
     },
-    INCREMENT_3_INSTRUMENT(new String[]{"\n"}) {
+    INCREMENT_3_INSTRUMENT(new String[]{"3"}) {
         @Override
         public String getTranslation(MusicState state){
             for(int instrument = 0; instrument < 3; instrument++)
@@ -111,7 +111,7 @@ public enum InstructionEnum {
             return " I" + state.getInstrument();
         }
     },
-    INCREMENT_4_INSTRUMENT(new String[]{"\n"}) {
+    INCREMENT_4_INSTRUMENT(new String[]{"4"}) {
         @Override
         public String getTranslation(MusicState state){
             for(int instrument = 0; instrument < 4; instrument++)
@@ -119,7 +119,7 @@ public enum InstructionEnum {
             return " I" + state.getInstrument();
         }
     },
-    INCREMENT_5_INSTRUMENT(new String[]{"\n"}) {
+    INCREMENT_5_INSTRUMENT(new String[]{"5"}) {
         @Override
         public String getTranslation(MusicState state){
             for(int instrument = 0; instrument < 5; instrument++)
@@ -127,7 +127,7 @@ public enum InstructionEnum {
             return " I" + state.getInstrument();
         }
     },
-    INCREMENT_6_INSTRUMENT(new String[]{"\n"}) {
+    INCREMENT_6_INSTRUMENT(new String[]{"6"}) {
         @Override
         public String getTranslation(MusicState state){
             for(int instrument = 0; instrument < 6; instrument++)
@@ -135,7 +135,7 @@ public enum InstructionEnum {
             return " I" + state.getInstrument();
         }
     },
-    INCREMENT_7_INSTRUMENT(new String[]{"\n"}) {
+    INCREMENT_7_INSTRUMENT(new String[]{"7"}) {
         @Override
         public String getTranslation(MusicState state){
             for(int instrument = 0; instrument < 7; instrument++)
@@ -143,7 +143,7 @@ public enum InstructionEnum {
             return " I" + state.getInstrument();
         }
     },
-    INCREMENT_8_INSTRUMENT(new String[]{"\n"}) {
+    INCREMENT_8_INSTRUMENT(new String[]{"8"}) {
         @Override
         public String getTranslation(MusicState state){
             for(int instrument = 0; instrument < 8; instrument++)
@@ -151,7 +151,7 @@ public enum InstructionEnum {
             return " I" + state.getInstrument();
         }
     },
-    INCREMENT_9_INSTRUMENT(new String[]{"\n"}) {
+    INCREMENT_9_INSTRUMENT(new String[]{"9"}) {
         @Override
         public String getTranslation(MusicState state){
             for(int instrument = 0; instrument < 9; instrument++)

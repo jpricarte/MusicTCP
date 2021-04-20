@@ -3,7 +3,6 @@ package Music.musicState;
 import static org.junit.jupiter.api.Assertions.*;
 
 import Music.Enums.NoteEnum;
-import org.jfugue.temporal.TemporalEvents;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
