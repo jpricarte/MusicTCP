@@ -5,8 +5,21 @@ import Music.Enums.NoteEnum;
 
 public class MusicState {
     public static final int NO_NOTE = -1;
-
     protected static final int OCTAVE_SIZE = 12;
+    public static final int DEFAULT_MIN_VOLUME = 0;
+    public static final int DEFAULT_MAX_VOLUME = 127;
+    public static final int DEFAULT_DEFAULT_VOLUME = 32;
+    public static final int DEFAULT_MIN_OCTAVE = 1;
+    public static final int DEFAULT_MAX_OCTAVE = 9;
+    public static final int DEFAULT_DEFAULT_OCTAVE = 5;
+    public static final int DEFAULT_MIN_BPM = 50;
+    public static final int DEFAULT_MAX_BPM = 250;
+    public static final int DEFAULT_DEFAULT_BPM = 100;
+    public static final double DEFAULT_STEP_FACTOR_VOLUME = 2.0;
+    public static final int DEFAULT_STEP_BPM = 50;
+    public static final int DEFAULT_STEP_OCTAVE = 1;
+    public static final int DEFAULT_CURRENT_INSTRUMENT = 0;
+
 
     private int default_volume;
     private int min_volume;
@@ -30,28 +43,28 @@ public class MusicState {
     private NoteEnum currentNote;
 
     {
-        min_volume = 0;
-        max_volume = 127;
+        min_volume = DEFAULT_MIN_VOLUME;
+        max_volume = DEFAULT_MAX_VOLUME;
 
-        min_octave = 1;
-        max_octave = 9;
+        min_octave = DEFAULT_MIN_OCTAVE;
+        max_octave = DEFAULT_MAX_OCTAVE;
 
-        min_BPM = 50;
-        max_BPM = 250;
+        min_BPM = DEFAULT_MIN_BPM;
+        max_BPM = DEFAULT_MAX_BPM;
 
-        step_factor_volume = 2.0;
-        step_BPM = 50;
-        step_octave = 1;
+        step_factor_volume = DEFAULT_STEP_FACTOR_VOLUME;
+        step_BPM = DEFAULT_STEP_BPM;
+        step_octave = DEFAULT_STEP_OCTAVE;
 
         currentNote = NoteEnum.NONE;
     }
     
     public MusicState(){
-        default_volume = 32;
-        default_octave = 5;
-        default_BPM = 80;
+        default_volume = DEFAULT_DEFAULT_VOLUME;
+        default_octave = DEFAULT_DEFAULT_OCTAVE;
+        default_BPM = DEFAULT_DEFAULT_BPM;
 
-        currentInstrument = 0;
+        currentInstrument = DEFAULT_CURRENT_INSTRUMENT;
         currentOctave = default_octave;
         currentVolume = default_volume;
         currentBPM = default_BPM;
@@ -86,6 +99,7 @@ public class MusicState {
         max_octave = max_oct;
         step_octave = step_oct;
         default_octave = default_oct;
+        currentOctave = default_octave;
     }
     public void setBPMConstraints(int min_bpm, int max_bpm, int step_bpm, int default_bpm) {
         if (min_bpm > max_bpm)
@@ -100,6 +114,7 @@ public class MusicState {
         max_BPM = max_bpm;
         step_BPM = step_bpm;
         default_BPM = default_bpm;
+        currentBPM = default_bpm;
     }
 
     public void setInstrumentConstraints(int[] instruments, int default_inst) {
@@ -188,7 +203,7 @@ public class MusicState {
         setVolume( (int) (currentVolume * step_factor_volume));
     }
     public void increaseBPM() {
-        setOctave(currentBPM + step_BPM);
+        setBPM(currentBPM + step_BPM);
     }
     public void decreaseOctave() {
         setOctave(currentOctave - step_octave);
@@ -197,10 +212,10 @@ public class MusicState {
         setVolume( (int) (currentVolume / step_factor_volume));
     }
     public void decreaseBPM() {
-        setOctave(currentBPM - step_BPM);
+        setBPM(currentBPM - step_BPM);
     }
     public void nextInstrument() {
-        int index = 0;
+        int index = 1;
         for (int element : instrument_list) {
             if (element == currentInstrument)
                 break;
@@ -216,7 +231,7 @@ public class MusicState {
     }
 
     private int[] getInstrumentRange(int first, int last) {
-        int inst_array_length = last-first;
+        int inst_array_length = last-first+1;
         int[] inst_array = new int[inst_array_length];
         if (first < 0 || last > 127)
             throw new IllegalArgumentException("Instruments range is out of MIDI range!");
