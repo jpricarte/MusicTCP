@@ -9,39 +9,36 @@ import java.util.List;
 
 public class Music {
 
-    private List<InstructionEnum> instructions;
-    private MusicState musicState;
-    private String musicText;
+    protected List<InstructionEnum> instructions;
+    protected MusicState musicState;
+    protected String musicText;
 
     public Music(int initialOctave, int initialVolume, int initialBPM, int initialInstrument) {
         musicState = new MusicState();
 
-        musicState.setInstrumentConstraints(0,127,initialInstrument);
         musicState.setInstrument(initialInstrument);
-
         musicState.setBPM(initialBPM);
         musicState.setOctave(initialOctave);
         musicState.setVolume(initialVolume);
 
         musicText = "I"+musicState.getInstrument();
         musicText += " T"+musicState.getBPM();
-        musicText += " CON(7,"+musicState.getVolume()+")";
+        musicText += " :CON(7,"+musicState.getVolume()+")";
     }
 
     public Music() {
         musicState = new MusicState();
-        musicState.setInstrumentConstraints(0,127,65);
         musicText = "I"+musicState.getInstrument();
         musicText += " T"+musicState.getBPM();
-        musicText += " CON(7,"+musicState.getVolume()+")";
+        musicText += " :CON(7,"+musicState.getVolume()+")";
     }
 
-    private void tokenizeMusic(String rawText) {
+    protected void tokenizeMusic(String rawText) {
         var textTokenizer = new TextTokenizer(rawText);
         instructions = textTokenizer.getTokens();
     }
 
-    private void convertTokensToMusic() {
+    protected void convertTokensToMusic() {
         for ( InstructionEnum instruction : instructions)
             musicText += instruction.getTranslation(musicState);
     }
@@ -51,6 +48,8 @@ public class Music {
         convertTokensToMusic();
         return new Pattern(this.musicText);
     }
+
+
 
 }
 
