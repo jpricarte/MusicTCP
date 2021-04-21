@@ -30,6 +30,4 @@ public class MusicPlayer {
         MidiFileManager.savePatternToMidi(music, newFile);
     }   // salva a música
 
-
-
 }
