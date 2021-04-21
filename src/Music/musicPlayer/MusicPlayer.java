@@ -27,6 +27,7 @@ public class MusicPlayer {
     }   // toca a música
 
     public void saveMusic(File file) throws IOException {
+
         MidiFileManager.savePatternToMidi(music, file);
     }   // salva a música
 
