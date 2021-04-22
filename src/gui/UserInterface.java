@@ -2,6 +2,7 @@ package gui;
 
 import Music.music.Music;
 import Music.musicPlayer.MusicPlayer;
+import Music.musicState.MusicState;
 import org.jfugue.pattern.Pattern;
 
 import javax.swing.*;
@@ -105,15 +106,19 @@ public class UserInterface {
     private void createUIComponents() {
 
         instrumentSelector = new JSpinner();
-        instrumentSelector.setModel(new SpinnerNumberModel(0,0,127,1));
+        instrumentSelector.setModel(new SpinnerNumberModel(MusicState.DEFAULT_CURRENT_INSTRUMENT,
+                0,127,1));
 
         bpmSelector = new JSpinner();
-        bpmSelector.setModel(new SpinnerNumberModel(110, 0, 255,1));
+        bpmSelector.setModel(new SpinnerNumberModel(MusicState.DEFAULT_DEFAULT_BPM,
+                MusicState.DEFAULT_MIN_BPM, MusicState.DEFAULT_MAX_BPM,MusicState.DEFAULT_STEP_BPM));
 
         octaveSelector = new JSpinner();
-        octaveSelector.setModel(new SpinnerNumberModel(5, 0, 9, 1));
+        octaveSelector.setModel(new SpinnerNumberModel(MusicState.DEFAULT_DEFAULT_OCTAVE,
+                MusicState.DEFAULT_MIN_OCTAVE, MusicState.DEFAULT_MAX_OCTAVE, MusicState.DEFAULT_STEP_OCTAVE));
 
-        volumeSelector = new JSlider(0,127,63);
+        volumeSelector = new JSlider(MusicState.DEFAULT_MIN_VOLUME,
+                MusicState.DEFAULT_MAX_VOLUME, MusicState.DEFAULT_DEFAULT_VOLUME);
     }
 
     public JPanel getjPanel() {
