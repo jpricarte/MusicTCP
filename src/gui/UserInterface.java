@@ -7,6 +7,7 @@ import org.jfugue.pattern.Pattern;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
@@ -24,7 +25,6 @@ public class UserInterface {
     private JSlider volumeSelector;
     private JSpinner instrumentSelector;
     private JSpinner bpmSelector;
-    private JProgressBar progressBar1;
     private JButton playMusicButton;
     private JButton saveMusicButton;
     private JButton importTextButton;
@@ -37,10 +37,28 @@ public class UserInterface {
     public UserInterface() {
         musicPlayer = new MusicPlayer();
 
+        importTextButton.addActionListener(ActionEvent -> openTextFile());
         generateMusicButton.addActionListener(ActionEvent -> generateMusicFromInfos());
         playMusicButton.addActionListener(ActionEvent -> playMusic());
         saveMusicButton.addActionListener(ActionEvent -> saveMusic());
-        importTextButton.addActionListener(ActionEvent -> openTextFile());
+    }
+
+    private void createUIComponents() {
+
+        instrumentSelector = new JSpinner();
+        instrumentSelector.setModel(new SpinnerNumberModel(MusicState.DEFAULT_CURRENT_INSTRUMENT,
+                0,127,1));
+
+        bpmSelector = new JSpinner();
+        bpmSelector.setModel(new SpinnerNumberModel(MusicState.DEFAULT_DEFAULT_BPM,
+                MusicState.DEFAULT_MIN_BPM, MusicState.DEFAULT_MAX_BPM,MusicState.DEFAULT_STEP_BPM));
+
+        octaveSelector = new JSpinner();
+        octaveSelector.setModel(new SpinnerNumberModel(MusicState.DEFAULT_DEFAULT_OCTAVE,
+                MusicState.DEFAULT_MIN_OCTAVE, MusicState.DEFAULT_MAX_OCTAVE, MusicState.DEFAULT_STEP_OCTAVE));
+
+        volumeSelector = new JSlider(MusicState.DEFAULT_MIN_VOLUME,
+                MusicState.DEFAULT_MAX_VOLUME, MusicState.DEFAULT_DEFAULT_VOLUME);
     }
 
     private void openTextFile() {
@@ -103,36 +121,7 @@ public class UserInterface {
         }
     }
 
-    private void createUIComponents() {
-
-        instrumentSelector = new JSpinner();
-        instrumentSelector.setModel(new SpinnerNumberModel(MusicState.DEFAULT_CURRENT_INSTRUMENT,
-                0,127,1));
-
-        bpmSelector = new JSpinner();
-        bpmSelector.setModel(new SpinnerNumberModel(MusicState.DEFAULT_DEFAULT_BPM,
-                MusicState.DEFAULT_MIN_BPM, MusicState.DEFAULT_MAX_BPM,MusicState.DEFAULT_STEP_BPM));
-
-        octaveSelector = new JSpinner();
-        octaveSelector.setModel(new SpinnerNumberModel(MusicState.DEFAULT_DEFAULT_OCTAVE,
-                MusicState.DEFAULT_MIN_OCTAVE, MusicState.DEFAULT_MAX_OCTAVE, MusicState.DEFAULT_STEP_OCTAVE));
-
-        volumeSelector = new JSlider(MusicState.DEFAULT_MIN_VOLUME,
-                MusicState.DEFAULT_MAX_VOLUME, MusicState.DEFAULT_DEFAULT_VOLUME);
-    }
-
     public JPanel getjPanel() {
         return jPanel;
-    }
-
-    public static void main(String[] args) {
-        JFrame frame = new JFrame();
-        UserInterface ui = new UserInterface();
-
-        frame.setContentPane(ui.getjPanel());
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setTitle("MusicFlow");
-        frame.setVisible(true);
     }
 }
