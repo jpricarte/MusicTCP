@@ -4,6 +4,7 @@ import org.jfugue.midi.MidiFileManager;
 import org.jfugue.pattern.Pattern;
 import org.jfugue.player.Player;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 
@@ -25,11 +26,8 @@ public class MusicPlayer {
         player.play(music);
     }   // toca a música
 
-    public void saveMusic(String filename) throws IOException {
-        final File newFile = new File("./" + filename + ".midi");
-        MidiFileManager.savePatternToMidi(music, newFile);
+    public void saveMusic(File file) throws IOException {
+        MidiFileManager.savePatternToMidi(music, file);
     }   // salva a música
-
-
 
 }
