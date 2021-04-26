@@ -43,9 +43,27 @@ public class MusicTest extends Music {
     }
 
     @Test
+    public void testPersonalizedInitializateAboveMax() {
+        Music personalizedMusic = new Music(10,128,256,128);
+        assertEquals(BASE_STRING, personalizedMusic.musicText);
+    }
+
+    @Test
+    public void testPersonalizedInitializateBellowMin() {
+        Music personalizedMusic = new Music(-1,-1,-1,-1);
+        assertEquals(BASE_STRING, personalizedMusic.musicText);
+    }
+
+    @Test
     public void testTokenizeMusic() {
         music.tokenizeMusic("AB C");
         assertEquals(expected_instruct_list,music.instructions);
+    }
+
+    @Test
+    public void testTokenizeMusicEmpty() {
+        music.tokenizeMusic("");
+        assertTrue(music.instructions.isEmpty());
     }
 
     @Test
