@@ -7,11 +7,6 @@ import org.jfugue.pattern.Pattern;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -19,6 +14,11 @@ import java.nio.file.Paths;
 import static javax.swing.JOptionPane.ERROR_MESSAGE;
 
 public class UserInterface {
+
+    private final String OPEN_FILE_ERROR_MESSAGE = "Falha ao abrir arquivo";
+    private final String SAVE_FILE_ERROR_MESSAGE = "Falha ao salvar arquivo";
+    private final String NO_FILE_WARNING_MESSAGE = "Nenhum texto foi carregado pois nenhum arquivo foi selecionado";
+    private final String CANCELLED_SAVE_WARNING_MESSAGE = "Operação Cancelada, a música não foi salva";
 
     private JPanel jPanel;
     private JButton generateMusicButton;
@@ -31,7 +31,7 @@ public class UserInterface {
     private JTextArea textArea;
     private JSpinner octaveSelector;
 
-    private MusicPlayer musicPlayer;
+    private final MusicPlayer musicPlayer;
     private Music music;
 
     public UserInterface() {
@@ -65,14 +65,20 @@ public class UserInterface {
         JFileChooser chooser = new JFileChooser();
         chooser.setDialogType(JFileChooser.OPEN_DIALOG);
         chooser.setFileFilter(new FileNameExtensionFilter("Text file","txt", "text"));
-        chooser.showSaveDialog(jPanel);
+        int result = chooser.showSaveDialog(jPanel);
 
-        try {
-            String text = new String(Files.readAllBytes(Paths.get(chooser.getSelectedFile().getAbsolutePath())));
-            textArea.setText(text);
-
-        } catch (IOException e) {
-            JOptionPane.showInternalMessageDialog(null,e, "Falha ao abrir arquivo",ERROR_MESSAGE);
+        if(result == JFileChooser.CANCEL_OPTION) {
+            JOptionPane.showInternalMessageDialog(null,NO_FILE_WARNING_MESSAGE, "Atenção!",JOptionPane.WARNING_MESSAGE);
+        }
+        else {
+            try {
+                String text = new String(Files.readAllBytes(Paths.get(chooser.getSelectedFile().getAbsolutePath())));
+                textArea.setText(text);
+            } catch (IOException e) {
+                JOptionPane.showInternalMessageDialog(null,OPEN_FILE_ERROR_MESSAGE, "Erro!",ERROR_MESSAGE);
+            } catch (NullPointerException e) {
+                JOptionPane.showInternalMessageDialog(null,NO_FILE_WARNING_MESSAGE, "Atenção!",JOptionPane.WARNING_MESSAGE);
+            }
         }
     }
 
@@ -82,23 +88,22 @@ public class UserInterface {
         int bpm = (int) bpmSelector.getValue();
         int octave = (int) octaveSelector.getValue();
         String text = textArea.getText();
-
         music = new Music(octave, volume, bpm, instrument);
-        Pattern musicPattern = music.getMusicPatternFromText(text);
 
-        musicPlayer.setMusic(musicPattern);
-        playMusicButton.setEnabled(true);
-        saveMusicButton.setEnabled(true);
+        try {
+            Pattern musicPattern = music.getMusicPatternFromText(text);
+            musicPlayer.setMusic(musicPattern);
+
+            playMusicButton.setEnabled(true);
+            saveMusicButton.setEnabled(true);
+        } catch (IllegalArgumentException e) {
+            JOptionPane.showInternalMessageDialog(null,e.getMessage(), "Erro!",ERROR_MESSAGE);
+        }
+
     }
 
     private void playMusic() {
-        Runnable playMusicThread = new Runnable() {
-            @Override
-            public void run() {
-                musicPlayer.playMusic();
-            }
-        };
-
+        Runnable playMusicThread = () -> musicPlayer.playMusic();
         new Thread(playMusicThread).start();
     }
 
@@ -111,13 +116,19 @@ public class UserInterface {
         chooser.setSelectedFile(new File(filename));
         chooser.setFileFilter(new FileNameExtensionFilter("MIDI file","midi"));
         // Mostra a dialog de save file
-        chooser.showSaveDialog(jPanel);
-        File file = chooser.getSelectedFile();
+        int result = chooser.showSaveDialog(jPanel);
 
-        try {
-            musicPlayer.saveMusic(file);
-        } catch (IOException e) {
-            JOptionPane.showInternalMessageDialog(null,e, "Erro ao salvar arquivo",ERROR_MESSAGE);
+        if(result == JFileChooser.CANCEL_OPTION) {
+            JOptionPane.showInternalMessageDialog(null,CANCELLED_SAVE_WARNING_MESSAGE,
+                    "Atenção!",JOptionPane.WARNING_MESSAGE);
+        }
+        else {
+            File file = chooser.getSelectedFile();
+            try {
+                musicPlayer.saveMusic(file);
+            } catch (IOException e) {
+                JOptionPane.showInternalMessageDialog(null, SAVE_FILE_ERROR_MESSAGE, "Erro!", ERROR_MESSAGE);
+            }
         }
     }
 

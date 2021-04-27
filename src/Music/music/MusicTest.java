@@ -1,9 +1,7 @@
 package Music.music;
 
 import Music.Enums.InstructionEnum;
-import Music.tokenizer.TextTokenizer;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -16,6 +14,8 @@ public class MusicTest extends Music {
     public final String BASE_STRING = "I0 T100 :CON(7,32)";
     public final String BASE_PERSONALIZED_STRING = "I65 T110 :CON(7,67)";
     public final String EXPECTED_MUSIC_STRING = BASE_STRING + " 69 71 :CON(7,64) 60";
+    public final String SIMPLE_MUSIC_TEXT = "AB C";
+    public final String ERROR_MESSAGE = "getMusicPatternFromText needs a non Empty string as param";
 
     public List<InstructionEnum> expected_instruct_list;
     public Music music;
@@ -56,7 +56,7 @@ public class MusicTest extends Music {
 
     @Test
     public void testTokenizeMusic() {
-        music.tokenizeMusic("AB C");
+        music.tokenizeMusic(SIMPLE_MUSIC_TEXT);
         assertEquals(expected_instruct_list,music.instructions);
     }
 
@@ -73,5 +73,19 @@ public class MusicTest extends Music {
         assertEquals(EXPECTED_MUSIC_STRING, music.musicText);
     }
 
+    @Test
+    public void testGetMusicPatternFromText() {
+        music.getMusicPatternFromText(SIMPLE_MUSIC_TEXT);
+        assertEquals(EXPECTED_MUSIC_STRING, music.musicText);
+    }
+
+    @Test
+    public void testGetMusicPatternFromTextEmpty() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> music.getMusicPatternFromText(""));
+
+        String actualMessage = exception.getMessage();
+
+        assertEquals(ERROR_MESSAGE,actualMessage);
+    }
 
 }

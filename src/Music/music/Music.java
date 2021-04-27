@@ -33,6 +33,7 @@ public class Music {
         musicText += " :CON(7,"+musicState.getVolume()+")";
     }
 
+    //TODO: Throw exception if music has no notes
     protected void tokenizeMusic(String rawText) {
         var textTokenizer = new TextTokenizer(rawText);
         instructions = textTokenizer.getTokens();
@@ -43,7 +44,7 @@ public class Music {
             musicText += instruction.getTranslation(musicState);
     }
 
-    public Pattern getMusicPatternFromText(String rawText) {
+    public Pattern getMusicPatternFromText(String rawText) throws IllegalArgumentException{
         tokenizeMusic(rawText);
         convertTokensToMusic();
         return new Pattern(this.musicText);

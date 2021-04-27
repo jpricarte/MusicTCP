@@ -4,14 +4,13 @@ import org.jfugue.midi.MidiFileManager;
 import org.jfugue.pattern.Pattern;
 import org.jfugue.player.Player;
 
-import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 
 
 public class MusicPlayer {
 
-    private Player player;
+    private final Player player;
     private Pattern music;
 
     public MusicPlayer() {
@@ -26,7 +25,11 @@ public class MusicPlayer {
         player.play(music);
     }   // toca a música
 
-    public void saveMusic(File file) throws IOException {
+    public void saveMusic(File file) throws IOException, NullPointerException {
+        System.out.println(file);
+        if (file == null) {
+            throw new NullPointerException("saveMusic cannot accept null pointers as file param");
+        }
         MidiFileManager.savePatternToMidi(music, file);
     }   // salva a música
 
