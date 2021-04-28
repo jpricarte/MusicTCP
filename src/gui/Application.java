@@ -12,6 +12,7 @@ public class Application {
         frame.setContentPane(ui.getjPanel());
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setMinimumSize(new Dimension(450, 300));
         frame.pack();
         frame.setTitle("MusicFlow");
         frame.setBackground(Color.WHITE);

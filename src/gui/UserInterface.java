@@ -19,6 +19,7 @@ public class UserInterface {
     private final String SAVE_FILE_ERROR_MESSAGE = "Falha ao salvar arquivo";
     private final String NO_FILE_WARNING_MESSAGE = "Nenhum texto foi carregado pois nenhum arquivo foi selecionado";
     private final String CANCELLED_SAVE_WARNING_MESSAGE = "Operação Cancelada, a música não foi salva";
+    private final String BIG_TEXT_ERROR = "O texto inserido foi muito grande, o nosso limite é de 2048 caracteres";
 
     private JPanel jPanel;
     private JButton generateMusicButton;
@@ -97,7 +98,7 @@ public class UserInterface {
             playMusicButton.setEnabled(true);
             saveMusicButton.setEnabled(true);
         } catch (IllegalArgumentException e) {
-            JOptionPane.showInternalMessageDialog(null,e.getMessage(), "Erro!",ERROR_MESSAGE);
+            JOptionPane.showInternalMessageDialog(null,BIG_TEXT_ERROR, "Erro!",ERROR_MESSAGE);
         }
 
     }
