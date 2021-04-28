@@ -21,16 +21,26 @@ public class MusicPlayer {
         this.music = music;
     }
 
-    public void playMusic(){
-        player.play(music);
-    }   // toca a música
+    public void playMusic() throws NullPointerException {
+        if (music == null) {
+            throw new NullPointerException("Pattern music not set yet");
+        }
+        else {
+            player.play(music);
+        }
+    }
 
     public void saveMusic(File file) throws IOException, NullPointerException {
         System.out.println(file);
-        if (file == null) {
-            throw new NullPointerException("saveMusic cannot accept null pointers as file param");
+        if (music == null) {
+            throw new NullPointerException("Pattern music not set yet");
         }
+
         MidiFileManager.savePatternToMidi(music, file);
-    }   // salva a música
+    }
+
+    public Pattern getMusic(){
+        return music;
+    }
 
 }

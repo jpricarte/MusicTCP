@@ -11,7 +11,7 @@ class MusicStateTest {
     MusicState music_state;
 
     @BeforeEach
-    void init () {
+    void setUp () {
         music_state = new MusicState();
     }
 

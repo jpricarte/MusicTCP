@@ -115,9 +115,8 @@ public class UserInterface {
         chooser.setDialogType(JFileChooser.SAVE_DIALOG);
         chooser.setSelectedFile(new File(filename));
         chooser.setFileFilter(new FileNameExtensionFilter("MIDI file","midi"));
-        // Mostra a dialog de save file
-        int result = chooser.showSaveDialog(jPanel);
 
+        int result = chooser.showSaveDialog(jPanel);
         if(result == JFileChooser.CANCEL_OPTION) {
             JOptionPane.showInternalMessageDialog(null,CANCELLED_SAVE_WARNING_MESSAGE,
                     "Atenção!",JOptionPane.WARNING_MESSAGE);

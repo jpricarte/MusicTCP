@@ -9,6 +9,10 @@ import java.util.List;
 
 public class Music {
 
+    public static final int MAX_LENGTH = 2048;
+    public static final String BIG_STRING_ERROR = "rawText is too big!";
+    public static final String BLANK_TEXT_ERROR = "rawText must be non blank";
+
     protected List<InstructionEnum> instructions;
     protected MusicState musicState;
     protected String musicText;
@@ -34,7 +38,10 @@ public class Music {
     }
 
     //TODO: Throw exception if music has no notes
-    protected void tokenizeMusic(String rawText) {
+    protected void tokenizeMusic(String rawText) throws IllegalArgumentException{
+        if (rawText.length() > MAX_LENGTH) {
+            throw new IllegalArgumentException(BIG_STRING_ERROR);
+        }
         var textTokenizer = new TextTokenizer(rawText);
         instructions = textTokenizer.getTokens();
     }
@@ -45,6 +52,9 @@ public class Music {
     }
 
     public Pattern getMusicPatternFromText(String rawText) throws IllegalArgumentException{
+        if (rawText.isBlank()) {
+            throw new IllegalArgumentException(BLANK_TEXT_ERROR);
+        }
         tokenizeMusic(rawText);
         convertTokensToMusic();
         return new Pattern(this.musicText);
