@@ -1,15 +1,13 @@
 package gui;
 
 import Music.music.Music;
-import Music.musicPlayer.MusicPlayer;
 import Music.musicState.MusicState;
 import org.jfugue.pattern.Pattern;
-
+import Music.musicPlayer.MusicPlayer;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+
 
 import static javax.swing.JOptionPane.ERROR_MESSAGE;
 
@@ -73,7 +71,20 @@ public class UserInterface {
         }
         else {
             try {
-                String text = new String(Files.readAllBytes(Paths.get(chooser.getSelectedFile().getAbsolutePath())));
+                File inFile = new File(chooser.getSelectedFile().getAbsolutePath());
+                byte[] inFileBytes;
+                if ((int) inFile.length() < Music.MAX_LENGTH)
+                    inFileBytes = new byte[(int) inFile.length()];
+                else
+                    inFileBytes = new byte[(int) Music.MAX_LENGTH];
+                FileInputStream  inFileStream = new FileInputStream(inFile);
+                int readSuccess = inFileStream.read(inFileBytes);
+                inFileStream.close();
+                String text;
+                if (readSuccess != -1)
+                    text = new String(inFileBytes);
+                else
+                    text = new String("");
                 textArea.setText(text);
             } catch (IOException e) {
                 JOptionPane.showInternalMessageDialog(null,OPEN_FILE_ERROR_MESSAGE, "Erro!",ERROR_MESSAGE);

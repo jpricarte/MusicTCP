@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.IOException;
 
 
-public class MusicPlayer {
+public class MusicPlayer implements IMusicPlayer {
 
     private final Player player;
     private Pattern music;
