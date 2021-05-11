@@ -16,7 +16,7 @@ public class MusicTest extends Music {
     public final String EXPECTED_MUSIC_STRING = BASE_STRING + " 69 71 :CON(7,64) 60";
     public final String SIMPLE_MUSIC_TEXT = "AB C";
     public final String BIG_STRING_ERROR = "rawText is too big!";
-    public final String FILE_ERROR_MESSAGE = "rawText must be non blank";
+    public final String EMPTY_TEXT_ERROR = "rawText must be non blank";
     public final int MAX_SIZE = 2048;
 
     public List<InstructionEnum> expected_instruct_list;
@@ -77,8 +77,12 @@ public class MusicTest extends Music {
 
     @Test
     public void testTokenizeMusicEmpty() {
-        music.tokenizeMusic("");
-        assertTrue(music.instructions.isEmpty());
+
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> music.getMusicPatternFromText(""));
+
+        String actualMessage = exception.getMessage();
+
+        assertEquals(EMPTY_TEXT_ERROR,actualMessage);
     }
 
     @Test
@@ -100,7 +104,7 @@ public class MusicTest extends Music {
 
         String actualMessage = exception.getMessage();
 
-        assertEquals(FILE_ERROR_MESSAGE,actualMessage);
+        assertEquals(EMPTY_TEXT_ERROR,actualMessage);
     }
 
 }
