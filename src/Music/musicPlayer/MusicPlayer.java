@@ -6,7 +6,7 @@ import org.jfugue.player.Player;
 
 import java.io.File;
 import java.io.IOException;
-
+import java.io.FileOutputStream;
 
 public class MusicPlayer implements IMusicPlayer {
 
@@ -35,8 +35,9 @@ public class MusicPlayer implements IMusicPlayer {
         if (music == null) {
             throw new NullPointerException("Pattern music not set yet");
         }
-
-        MidiFileManager.savePatternToMidi(music, file);
+        FileOutputStream outStream = new FileOutputStream(file);
+        MidiFileManager.savePatternToMidi(music, outStream);
+        outStream.close();
     }
 
     public Pattern getMusic(){
