@@ -19,7 +19,7 @@ public class UserInterface {
     private final String SAVE_FILE_ERROR_MESSAGE = "Falha ao salvar arquivo";
     private final String NO_FILE_WARNING_MESSAGE = "Nenhum texto foi carregado pois nenhum arquivo foi selecionado";
     private final String CANCELLED_SAVE_WARNING_MESSAGE = "Operação Cancelada, a música não foi salva";
-    private final String TEXT_ERROR = "O texto inserido deve ter entre 0 e 2048 caracteres";
+    private final String TEXT_ERROR = "O texto inserido deve ter entre 1 e 2048 caracteres";
     private final String DEFINITION_LINK = "http://www.inf.ufrgs.br/~jpricarte/doc/enunciado.pdf";
 
     private JPanel jPanel;

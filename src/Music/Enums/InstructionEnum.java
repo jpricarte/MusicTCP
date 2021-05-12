@@ -71,6 +71,7 @@ public enum InstructionEnum {
         @Override
         public String getTranslation(MusicState state){
             state.increaseVolume();
+            state.setNote(NoteEnum.NONE);
             return " :CON(7," + state.getVolume()+")";
         }
     },
@@ -78,6 +79,7 @@ public enum InstructionEnum {
       @Override
       public String getTranslation(MusicState state){
           state.setInstrument(114);
+          state.setNote(NoteEnum.NONE);
           return " I" + state.getInstrument();
       }
     },
@@ -85,6 +87,7 @@ public enum InstructionEnum {
         @Override
         public String getTranslation(MusicState state){
             state.setInstrument(7);
+            state.setNote(NoteEnum.NONE);
             return " I" + state.getInstrument();
         }
     },
@@ -92,6 +95,7 @@ public enum InstructionEnum {
         @Override
         public String getTranslation(MusicState state){
             state.nextInstrument();
+            state.setNote(NoteEnum.NONE);
             return " I" + state.getInstrument();
         }
     },
@@ -100,6 +104,7 @@ public enum InstructionEnum {
         public String getTranslation(MusicState state){
             for(int instrument = 0; instrument < 2; instrument++)
                 state.nextInstrument();
+            state.setNote(NoteEnum.NONE);
             return " I" + state.getInstrument();
         }
     },
@@ -108,6 +113,7 @@ public enum InstructionEnum {
         public String getTranslation(MusicState state){
             for(int instrument = 0; instrument < 3; instrument++)
                 state.nextInstrument();
+            state.setNote(NoteEnum.NONE);
             return " I" + state.getInstrument();
         }
     },
@@ -116,6 +122,7 @@ public enum InstructionEnum {
         public String getTranslation(MusicState state){
             for(int instrument = 0; instrument < 4; instrument++)
                 state.nextInstrument();
+            state.setNote(NoteEnum.NONE);
             return " I" + state.getInstrument();
         }
     },
@@ -124,6 +131,7 @@ public enum InstructionEnum {
         public String getTranslation(MusicState state){
             for(int instrument = 0; instrument < 5; instrument++)
                 state.nextInstrument();
+            state.setNote(NoteEnum.NONE);
             return " I" + state.getInstrument();
         }
     },
@@ -132,6 +140,7 @@ public enum InstructionEnum {
         public String getTranslation(MusicState state){
             for(int instrument = 0; instrument < 6; instrument++)
                 state.nextInstrument();
+            state.setNote(NoteEnum.NONE);
             return " I" + state.getInstrument();
         }
     },
@@ -140,6 +149,7 @@ public enum InstructionEnum {
         public String getTranslation(MusicState state){
             for(int instrument = 0; instrument < 7; instrument++)
                 state.nextInstrument();
+            state.setNote(NoteEnum.NONE);
             return " I" + state.getInstrument();
         }
     },
@@ -148,6 +158,7 @@ public enum InstructionEnum {
         public String getTranslation(MusicState state){
             for(int instrument = 0; instrument < 8; instrument++)
                 state.nextInstrument();
+            state.setNote(NoteEnum.NONE);
             return " I" + state.getInstrument();
         }
     },
@@ -156,6 +167,7 @@ public enum InstructionEnum {
         public String getTranslation(MusicState state){
             for(int instrument = 0; instrument < 9; instrument++)
                 state.nextInstrument();
+            state.setNote(NoteEnum.NONE);
             return " I" + state.getInstrument();
         }
     },
@@ -163,6 +175,7 @@ public enum InstructionEnum {
         @Override
         public String getTranslation(MusicState state){
             state.increaseOctave();
+            state.setNote(NoteEnum.NONE);
             return "";
         }
     },
@@ -170,6 +183,7 @@ public enum InstructionEnum {
         @Override
         public String getTranslation(MusicState state){
             state.setInstrument(15);
+            state.setNote(NoteEnum.NONE);
             return " I" + state.getInstrument();
         }
     },
@@ -177,6 +191,7 @@ public enum InstructionEnum {
         @Override
         public String getTranslation(MusicState state){
             state.setInstrument(76);
+            state.setNote(NoteEnum.NONE);
             return " I" + state.getInstrument();
         }
     },
@@ -184,6 +199,7 @@ public enum InstructionEnum {
         @Override
         public String getTranslation(MusicState state){
             state.setInstrument(20);
+            state.setNote(NoteEnum.NONE);
             return " I" + state.getInstrument();
         }
     };
