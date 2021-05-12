@@ -1,0 +1,2011 @@
+\\==================================================================================================================
+\\======================================== INICIO ARQUIVO FORM DE INTERFACE ========================================
+\\==================================================================================================================
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="gui.UserInterface">
+  <grid id="27dc6" binding="jPanel" layout-manager="GridLayoutManager" row-count="9" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="527" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="3420e" class="javax.swing.JButton" binding="generateMusicButton">
+        <constraints>
+          <grid row="4" column="4" row-span="2" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Gerar Música"/>
+        </properties>
+      </component>
+      <component id="4fff8" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="BPM"/>
+        </properties>
+      </component>
+      <component id="7607f" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Instrumento"/>
+        </properties>
+      </component>
+      <component id="9010d" class="javax.swing.JButton" binding="playMusicButton">
+        <constraints>
+          <grid row="7" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <enabled value="false"/>
+          <text value="Tocar"/>
+        </properties>
+      </component>
+      <component id="6c85d" class="javax.swing.JSlider" binding="volumeSelector" custom-create="true">
+        <constraints>
+          <grid row="5" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="2f5a" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Volume"/>
+        </properties>
+      </component>
+      <component id="80fe0" class="javax.swing.JSpinner" binding="instrumentSelector" custom-create="true">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <hspacer id="6c17b">
+        <constraints>
+          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <component id="e3e2d" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Texto"/>
+        </properties>
+      </component>
+      <component id="3ae90" class="javax.swing.JButton" binding="saveMusicButton">
+        <constraints>
+          <grid row="8" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <enabled value="false"/>
+          <hideActionText value="false"/>
+          <text value="Salvar Música"/>
+        </properties>
+      </component>
+      <vspacer id="3b53c">
+        <constraints>
+          <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <scrollpane id="9135b">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="5" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="1b0fe" class="javax.swing.JTextArea" binding="textArea">
+            <constraints/>
+            <properties/>
+          </component>
+        </children>
+      </scrollpane>
+      <component id="81986" class="javax.swing.JSpinner" binding="bpmSelector" custom-create="true">
+        <constraints>
+          <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="2a32" class="javax.swing.JSpinner" binding="octaveSelector" custom-create="true">
+        <constraints>
+          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+      <component id="ab68b" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Oitava"/>
+        </properties>
+      </component>
+      <component id="80c73" class="javax.swing.JButton" binding="importTextButton">
+        <constraints>
+          <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Importar Texto"/>
+        </properties>
+      </component>
+      <component id="6f06d" class="javax.swing.JButton" binding="helpButton">
+        <constraints>
+          <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Descrição do trabalho"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
+
+\\==================================================================================================================
+\\======================================== FIM DO ARQUIVO FORM DE INTERFACE ========================================
+\\==================================================================================================================
+
+
+
+
+
+
+
+
+
+
+\\==================================================================================================================
+\\============================================ INICIO ARQUIVO INTERFACE ============================================
+\\==================================================================================================================
+package gui;
+
+import Music.music.Music;
+import Music.musicState.MusicState;
+import org.jfugue.pattern.Pattern;
+import Music.musicPlayer.MusicPlayer;
+import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.event.ActionEvent;
+import java.io.*;
+import java.net.URI;
+
+
+import static javax.swing.JOptionPane.ERROR_MESSAGE;
+
+public class UserInterface {
+
+    private final String OPEN_FILE_ERROR_MESSAGE = "Falha ao abrir arquivo";
+    private final String SAVE_FILE_ERROR_MESSAGE = "Falha ao salvar arquivo";
+    private final String NO_FILE_WARNING_MESSAGE = "Nenhum texto foi carregado pois nenhum arquivo foi selecionado";
+    private final String CANCELLED_SAVE_WARNING_MESSAGE = "Operação Cancelada, a música não foi salva";
+    private final String TEXT_ERROR = "O texto inserido deve ter entre 1 e 2048 caracteres";
+    private final String DEFINITION_LINK = "http://www.inf.ufrgs.br/~jpricarte/doc/enunciado.pdf";
+
+    private JPanel jPanel;
+    private JButton generateMusicButton;
+    private JSlider volumeSelector;
+    private JSpinner instrumentSelector;
+    private JSpinner bpmSelector;
+    private JButton playMusicButton;
+    private JButton saveMusicButton;
+    private JButton importTextButton;
+    private JTextArea textArea;
+    private JSpinner octaveSelector;
+    private JButton helpButton;
+
+    private final MusicPlayer musicPlayer;
+    private Music music;
+
+    public UserInterface() {
+        musicPlayer = new MusicPlayer();
+
+        importTextButton.addActionListener(ActionEvent -> openTextFile());
+        generateMusicButton.addActionListener(ActionEvent -> generateMusicFromInfos());
+        playMusicButton.addActionListener(ActionEvent -> playMusic());
+        saveMusicButton.addActionListener(ActionEvent -> saveMusic());
+        helpButton.addActionListener(ActionEvent -> openDefinition());
+    }
+
+    private void createUIComponents() {
+
+        instrumentSelector = new JSpinner();
+        instrumentSelector.setModel(new SpinnerNumberModel(MusicState.DEFAULT_CURRENT_INSTRUMENT,
+                0,127,1));
+
+        bpmSelector = new JSpinner();
+        bpmSelector.setModel(new SpinnerNumberModel(MusicState.DEFAULT_DEFAULT_BPM,
+                MusicState.DEFAULT_MIN_BPM, MusicState.DEFAULT_MAX_BPM,MusicState.DEFAULT_STEP_BPM));
+
+        octaveSelector = new JSpinner();
+        octaveSelector.setModel(new SpinnerNumberModel(MusicState.DEFAULT_DEFAULT_OCTAVE,
+                MusicState.DEFAULT_MIN_OCTAVE, MusicState.DEFAULT_MAX_OCTAVE, MusicState.DEFAULT_STEP_OCTAVE));
+
+        volumeSelector = new JSlider(MusicState.DEFAULT_MIN_VOLUME,
+                MusicState.DEFAULT_MAX_VOLUME, MusicState.DEFAULT_DEFAULT_VOLUME);
+    }
+
+    private void openDefinition() {
+        try {
+            java.awt.Desktop.getDesktop().browse(URI.create(DEFINITION_LINK));
+        } catch (IOException e) {
+            JOptionPane.showInternalMessageDialog(null, e.getMessage(), "Erro!",ERROR_MESSAGE);
+        }
+    }
+
+    private void openTextFile() {
+        JFileChooser chooser = new JFileChooser();
+        chooser.setDialogType(JFileChooser.OPEN_DIALOG);
+        chooser.setFileFilter(new FileNameExtensionFilter("Text file","txt", "text"));
+        int result = chooser.showSaveDialog(jPanel);
+
+        if(result == JFileChooser.CANCEL_OPTION) {
+            JOptionPane.showInternalMessageDialog(null,NO_FILE_WARNING_MESSAGE, "Atenção!",JOptionPane.WARNING_MESSAGE);
+        }
+        else {
+            try {
+                File inFile = new File(chooser.getSelectedFile().getAbsolutePath());
+                byte[] inFileBytes;
+                if ((int) inFile.length() < Music.MAX_LENGTH)
+                    inFileBytes = new byte[(int) inFile.length()];
+                else
+                    inFileBytes = new byte[(int) Music.MAX_LENGTH];
+                FileInputStream  inFileStream = new FileInputStream(inFile);
+                int readSuccess = inFileStream.read(inFileBytes);
+                inFileStream.close();
+                String text;
+                if (readSuccess != -1)
+                    text = new String(inFileBytes);
+                else
+                    text = new String("");
+                textArea.setText(text);
+            } catch (IOException e) {
+                JOptionPane.showInternalMessageDialog(null,OPEN_FILE_ERROR_MESSAGE, "Erro!",ERROR_MESSAGE);
+            } catch (NullPointerException e) {
+                JOptionPane.showInternalMessageDialog(null,NO_FILE_WARNING_MESSAGE, "Atenção!",JOptionPane.WARNING_MESSAGE);
+            }
+        }
+    }
+
+    private void generateMusicFromInfos() {
+        int volume = volumeSelector.getValue();
+        int instrument = (int) instrumentSelector.getValue();
+        int bpm = (int) bpmSelector.getValue();
+        int octave = (int) octaveSelector.getValue();
+        String text = textArea.getText();
+        music = new Music(octave, volume, bpm, instrument);
+
+        try {
+            Pattern musicPattern = music.getMusicPatternFromText(text);
+            musicPlayer.setMusic(musicPattern);
+
+            playMusicButton.setEnabled(true);
+            saveMusicButton.setEnabled(true);
+        } catch (IllegalArgumentException e) {
+            JOptionPane.showInternalMessageDialog(null, TEXT_ERROR, "Erro!",ERROR_MESSAGE);
+        }
+
+    }
+
+    private void playMusic() {
+        Runnable playMusicThread = () -> musicPlayer.playMusic();
+        new Thread(playMusicThread).start();
+    }
+
+    private void saveMusic() {
+        String filename = (File.separator +  "my_music.midi");
+        JFileChooser chooser = new JFileChooser();
+        chooser.setDialogType(JFileChooser.SAVE_DIALOG);
+        chooser.setSelectedFile(new File(filename));
+        chooser.setFileFilter(new FileNameExtensionFilter("MIDI file","midi"));
+
+        int result = chooser.showSaveDialog(jPanel);
+        if(result == JFileChooser.CANCEL_OPTION) {
+            JOptionPane.showInternalMessageDialog(null,CANCELLED_SAVE_WARNING_MESSAGE,
+                    "Atenção!",JOptionPane.WARNING_MESSAGE);
+        }
+        else {
+            File file = chooser.getSelectedFile();
+            try {
+                musicPlayer.saveMusic(file);
+            } catch (IOException e) {
+                JOptionPane.showInternalMessageDialog(null, SAVE_FILE_ERROR_MESSAGE, "Erro!", ERROR_MESSAGE);
+            }
+        }
+    }
+
+    public JPanel getjPanel() {
+        return jPanel;
+    }
+}
+
+\\==================================================================================================================
+\\============================================ FIM DO ARQUIVO INTERFACE ============================================
+\\==================================================================================================================
+
+
+
+
+
+
+
+
+
+
+\\==================================================================================================================
+\\======================================== INICIO DO ARQUIVO TOPO APLICACAO ========================================
+\\==================================================================================================================
+package gui;
+
+import javax.swing.*;
+import java.awt.*;
+
+public class Application {
+
+    public static void main(String[] args) {
+        JFrame frame = new JFrame();
+        UserInterface ui = new UserInterface();
+
+        frame.setContentPane(ui.getjPanel());
+
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setMinimumSize(new Dimension(450, 300));
+        frame.pack();
+        frame.setTitle("MusicFlow");
+        frame.setBackground(Color.WHITE);
+
+        frame.setVisible(true);
+    }
+}
+
+\\==================================================================================================================
+\\======================================== FIM DO ARQUIVO DE TOPO APLICACAO ========================================
+\\==================================================================================================================
+
+
+
+
+
+
+
+
+
+
+\\==================================================================================================================
+\\============================================ INICIO ARQUIVO NOTE ENUM ============================================
+\\==================================================================================================================
+package Music.Enums;
+
+public enum NoteEnum {
+    C(0), D(2), E(4), F(5), G(7), A(9), B(11), NONE(-1);
+
+    private final int noteValue;
+
+    NoteEnum(int value) {
+        noteValue = value;
+    }
+
+    public int getValue() {
+        return noteValue;
+    }
+}
+
+\\==================================================================================================================
+\\============================================ FIM DE ARQUIVO NOTE ENUM ============================================
+\\==================================================================================================================
+
+
+
+
+
+
+
+
+
+
+\\==================================================================================================================
+\\======================================= INICIO DE ARQUIVO INSTRUCTION ENUM =======================================
+\\==================================================================================================================
+package Music.Enums;
+
+import Music.musicState.MusicState;
+
+public enum InstructionEnum {
+    A(new String[]{"A"}) {
+        @Override
+        public String getTranslation(MusicState state){
+            state.setNote(NoteEnum.A);
+            return " " + state.getNote();
+        }
+    },
+    B(new String[]{"B"}) {
+        @Override
+        public String getTranslation(MusicState state){
+            state.setNote(NoteEnum.B);
+            return " " + state.getNote();
+        }
+    },
+    C(new String[]{"C"}) {
+        @Override
+        public String getTranslation(MusicState state){
+            state.setNote(NoteEnum.C);
+            return " " + state.getNote();
+        }
+    },
+    D(new String[]{"D"}) {
+        @Override
+        public String getTranslation(MusicState state){
+            state.setNote(NoteEnum.D);
+            return " " + state.getNote();
+        }
+    },
+    E(new String[]{"E"}) {
+        @Override
+        public String getTranslation(MusicState state){
+            state.setNote(NoteEnum.E);
+            return " " + state.getNote();
+        }
+    },
+    F(new String[]{"F"}) {
+        @Override
+        public String getTranslation(MusicState state){
+            state.setNote(NoteEnum.F);
+            return " " + state.getNote();
+        }
+    },
+    G(new String[]{"G"}) {
+        @Override
+        public String getTranslation(MusicState state){
+            state.setNote(NoteEnum.G);
+            return " " + state.getNote();
+        }
+    },
+    REPEAT_NOTE(new String[]{
+            "a", "b", "c", "d", "e", "f", "g", "h",
+            "j", "k", "l", "m", "n", "p", "q", "r",
+            "s", "t", "v", "w", "x", "y", "z", "H",
+            "J", "K", "L", "M", "N", "P", "Q", "R",
+            "S", "T", "V", "W", "X", "Y", "Z"
+    }) {
+        @Override
+        public String getTranslation(MusicState state){
+            if (state.getNote() == MusicState.NO_NOTE)
+                return " R";
+            else
+                return " " + state.getNote();
+        }
+    },
+    VOL_UP(new String[]{" "}) {
+        @Override
+        public String getTranslation(MusicState state){
+            state.increaseVolume();
+            state.setNote(NoteEnum.NONE);
+            return " :CON(7," + state.getVolume()+")";
+        }
+    },
+    CHANGE_TO_AGOGO(new String[]{"!"}) {
+      @Override
+      public String getTranslation(MusicState state){
+          state.setInstrument(114);
+          state.setNote(NoteEnum.NONE);
+          return " I" + state.getInstrument();
+      }
+    },
+    CHANGE_TO_HARPSICHORD(new String[]{"O", "o", "I", "i", "U", "u"}) {
+        @Override
+        public String getTranslation(MusicState state){
+            state.setInstrument(7);
+            state.setNote(NoteEnum.NONE);
+            return " I" + state.getInstrument();
+        }
+    },
+    INCREMENT_1_INSTRUMENT(new String[]{"1"}) {
+        @Override
+        public String getTranslation(MusicState state){
+            state.nextInstrument();
+            state.setNote(NoteEnum.NONE);
+            return " I" + state.getInstrument();
+        }
+    },
+    INCREMENT_2_INSTRUMENT(new String[]{"2"}) {
+        @Override
+        public String getTranslation(MusicState state){
+            for(int instrument = 0; instrument < 2; instrument++)
+                state.nextInstrument();
+            state.setNote(NoteEnum.NONE);
+            return " I" + state.getInstrument();
+        }
+    },
+    INCREMENT_3_INSTRUMENT(new String[]{"3"}) {
+        @Override
+        public String getTranslation(MusicState state){
+            for(int instrument = 0; instrument < 3; instrument++)
+                state.nextInstrument();
+            state.setNote(NoteEnum.NONE);
+            return " I" + state.getInstrument();
+        }
+    },
+    INCREMENT_4_INSTRUMENT(new String[]{"4"}) {
+        @Override
+        public String getTranslation(MusicState state){
+            for(int instrument = 0; instrument < 4; instrument++)
+                state.nextInstrument();
+            state.setNote(NoteEnum.NONE);
+            return " I" + state.getInstrument();
+        }
+    },
+    INCREMENT_5_INSTRUMENT(new String[]{"5"}) {
+        @Override
+        public String getTranslation(MusicState state){
+            for(int instrument = 0; instrument < 5; instrument++)
+                state.nextInstrument();
+            state.setNote(NoteEnum.NONE);
+            return " I" + state.getInstrument();
+        }
+    },
+    INCREMENT_6_INSTRUMENT(new String[]{"6"}) {
+        @Override
+        public String getTranslation(MusicState state){
+            for(int instrument = 0; instrument < 6; instrument++)
+                state.nextInstrument();
+            state.setNote(NoteEnum.NONE);
+            return " I" + state.getInstrument();
+        }
+    },
+    INCREMENT_7_INSTRUMENT(new String[]{"7"}) {
+        @Override
+        public String getTranslation(MusicState state){
+            for(int instrument = 0; instrument < 7; instrument++)
+                state.nextInstrument();
+            state.setNote(NoteEnum.NONE);
+            return " I" + state.getInstrument();
+        }
+    },
+    INCREMENT_8_INSTRUMENT(new String[]{"8"}) {
+        @Override
+        public String getTranslation(MusicState state){
+            for(int instrument = 0; instrument < 8; instrument++)
+                state.nextInstrument();
+            state.setNote(NoteEnum.NONE);
+            return " I" + state.getInstrument();
+        }
+    },
+    INCREMENT_9_INSTRUMENT(new String[]{"9"}) {
+        @Override
+        public String getTranslation(MusicState state){
+            for(int instrument = 0; instrument < 9; instrument++)
+                state.nextInstrument();
+            state.setNote(NoteEnum.NONE);
+            return " I" + state.getInstrument();
+        }
+    },
+    OCTAVE_UP(new String[]{"?", "."}) {
+        @Override
+        public String getTranslation(MusicState state){
+            state.increaseOctave();
+            state.setNote(NoteEnum.NONE);
+            return "";
+        }
+    },
+    CHANGE_TO_TUBULAR_BELLS(new String[]{"\n"}) {
+        @Override
+        public String getTranslation(MusicState state){
+            state.setInstrument(15);
+            state.setNote(NoteEnum.NONE);
+            return " I" + state.getInstrument();
+        }
+    },
+    CHANGE_TO_PAN_FLUE(new String[]{";"}) {
+        @Override
+        public String getTranslation(MusicState state){
+            state.setInstrument(76);
+            state.setNote(NoteEnum.NONE);
+            return " I" + state.getInstrument();
+        }
+    },
+    CHANGE_TO_CHURCH_ORGAN(new String[]{","}) {
+        @Override
+        public String getTranslation(MusicState state){
+            state.setInstrument(20);
+            state.setNote(NoteEnum.NONE);
+            return " I" + state.getInstrument();
+        }
+    };
+
+    private final String[] instructionValue;
+
+    InstructionEnum(String[] value) {
+        this.instructionValue = value;
+    }
+
+    public abstract String getTranslation(MusicState state);
+
+    public String[] getName() {
+        return instructionValue;
+    }
+}
+
+\\==================================================================================================================
+\\========================================== FIM ARQUIVO INSTRUCTION ENUM ==========================================
+\\==================================================================================================================
+
+
+
+
+
+
+
+
+
+
+\\==================================================================================================================
+\\============================================== INICIO ARQUIVO MUSIC ==============================================
+\\==================================================================================================================
+package Music.music;
+
+import Music.Enums.InstructionEnum;
+import Music.musicState.MusicState;
+import Music.tokenizer.TextTokenizer;
+import org.jfugue.pattern.Pattern;
+
+import java.util.List;
+
+public class Music {
+
+    public static final int MAX_LENGTH = 2048;
+    public static final String BIG_STRING_ERROR = "rawText is too big!";
+    public static final String BLANK_TEXT_ERROR = "rawText must be non blank";
+
+    protected List<InstructionEnum> instructions;
+    protected MusicState musicState;
+    protected String musicText;
+
+    public Music(int initialOctave, int initialVolume, int initialBPM, int initialInstrument) {
+        musicState = new MusicState();
+
+        musicState.setInstrument(initialInstrument);
+        musicState.setBPM(initialBPM);
+        musicState.setOctave(initialOctave);
+        musicState.setVolume(initialVolume);
+
+        musicText = "I"+musicState.getInstrument();
+        musicText += " T"+musicState.getBPM();
+        musicText += " :CON(7,"+musicState.getVolume()+")";
+    }
+
+    public Music() {
+        musicState = new MusicState();
+        musicText = "I"+musicState.getInstrument();
+        musicText += " T"+musicState.getBPM();
+        musicText += " :CON(7,"+musicState.getVolume()+")";
+    }
+
+    protected void tokenizeMusic(String rawText) throws IllegalArgumentException {
+        if (rawText.length() > MAX_LENGTH) {
+            throw new IllegalArgumentException(BIG_STRING_ERROR);
+        }
+
+        if (rawText.isBlank()) {
+            throw new IllegalArgumentException(BLANK_TEXT_ERROR);
+        }
+
+        var textTokenizer = new TextTokenizer(rawText);
+        instructions = textTokenizer.getTokens();
+    }
+
+    protected void convertTokensToMusic() {
+        for ( InstructionEnum instruction : instructions)
+            musicText += instruction.getTranslation(musicState);
+    }
+
+    public Pattern getMusicPatternFromText(String rawText) throws IllegalArgumentException{
+        tokenizeMusic(rawText);
+        convertTokensToMusic();
+        return new Pattern(this.musicText);
+    }
+
+
+
+}
+
+\\==================================================================================================================
+\\============================================== FIM DO ARQUIVO MUSIC ==============================================
+\\==================================================================================================================
+
+
+
+
+
+
+
+
+
+
+\\==================================================================================================================
+\\=========================================== INICIO ARQUIVO TESTE MUSIC ===========================================
+\\==================================================================================================================
+package Music.music;
+
+import Music.Enums.InstructionEnum;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class MusicTest extends Music {
+
+    public final String BASE_STRING = "I0 T100 :CON(7,32)";
+    public final String BASE_PERSONALIZED_STRING = "I65 T110 :CON(7,67)";
+    public final String EXPECTED_MUSIC_STRING = BASE_STRING + " 69 71 :CON(7,64) 60";
+    public final String SIMPLE_MUSIC_TEXT = "AB C";
+    public final String BIG_STRING_ERROR = "rawText is too big!";
+    public final String EMPTY_TEXT_ERROR = "rawText must be non blank";
+    public final int MAX_SIZE = 2048;
+
+    public List<InstructionEnum> expectedInstructList;
+    public Music music;
+
+    public String bigString(int size) {
+        return "A".repeat(Math.max(0, size));
+    }
+
+
+    @BeforeEach
+    public void init() {
+        music = new Music();
+        expectedInstructList = new ArrayList<>();
+        expectedInstructList.add(InstructionEnum.A);
+        expectedInstructList.add(InstructionEnum.B);
+        expectedInstructList.add(InstructionEnum.VOL_UP);
+        expectedInstructList.add(InstructionEnum.C);
+    }
+
+    @Test
+    public void testInitialize() {
+        assertEquals(BASE_STRING, music.musicText);
+    }
+
+    @Test
+    public void testPersonalizedInitializate() {
+        Music personalizedMusic = new Music(6,67,110,65);
+        assertEquals(BASE_PERSONALIZED_STRING, personalizedMusic.musicText);
+    }
+
+    @Test
+    public void testPersonalizedInitializateAboveMax() {
+        Music personalizedMusic = new Music(10,128,256,128);
+        assertEquals(BASE_STRING, personalizedMusic.musicText);
+    }
+
+    @Test
+    public void testPersonalizedInitializateBellowMin() {
+        Music personalizedMusic = new Music(-1,-1,-1,-1);
+        assertEquals(BASE_STRING, personalizedMusic.musicText);
+    }
+
+    @Test
+    public void testTokenizeMusic() {
+        music.tokenizeMusic(SIMPLE_MUSIC_TEXT);
+        assertEquals(expectedInstructList,music.instructions);
+    }
+
+    @Test
+    public void testConvertTokensToMusicBigString() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> music.getMusicPatternFromText(bigString(MAX_SIZE+1)));
+
+        String actualMessage = exception.getMessage();
+
+        assertEquals(BIG_STRING_ERROR,actualMessage);
+    }
+
+    @Test
+    public void testTokenizeMusicEmpty() {
+
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> music.getMusicPatternFromText(""));
+
+        String actualMessage = exception.getMessage();
+
+        assertEquals(EMPTY_TEXT_ERROR,actualMessage);
+    }
+
+    @Test
+    public void testConvertTokensToMusic() {
+        music.instructions = expectedInstructList;
+        music.convertTokensToMusic();
+        assertEquals(EXPECTED_MUSIC_STRING, music.musicText);
+    }
+
+    @Test
+    public void testGetMusicPatternFromText() {
+        music.getMusicPatternFromText(SIMPLE_MUSIC_TEXT);
+        assertEquals(EXPECTED_MUSIC_STRING, music.musicText);
+    }
+
+    @Test
+    public void testGetMusicPatternFromTextEmpty() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> music.getMusicPatternFromText(""));
+
+        String actualMessage = exception.getMessage();
+
+        assertEquals(EMPTY_TEXT_ERROR,actualMessage);
+    }
+
+}
+
+\\==================================================================================================================
+\\=========================================== FIM DO ARQUIVO TESTE MUSIC ===========================================
+\\==================================================================================================================
+
+
+
+
+
+
+
+
+
+
+\\==================================================================================================================
+\\==================================== INICIO DE ARQUIVO INTERFACE MUSIC PLAYER ====================================
+\\==================================================================================================================
+package Music.musicPlayer;
+
+import org.jfugue.pattern.Pattern;
+import java.io.File;
+import java.io.IOException;
+
+public interface IMusicPlayer {
+    public void setMusic(Pattern music);
+
+    public void playMusic();
+
+    public void saveMusic(File file) throws IOException, NullPointerException;
+
+}
+
+\\==================================================================================================================
+\\======================================= FIM ARQUIVO INTERFACE MUSIC PLAYER =======================================
+\\==================================================================================================================
+
+
+
+
+
+
+
+
+
+
+\\==================================================================================================================
+\\========================================= INICIO DE ARQUIVO MUSIC PLAYER =========================================
+\\==================================================================================================================
+package Music.musicPlayer;
+
+import org.jfugue.midi.MidiFileManager;
+import org.jfugue.pattern.Pattern;
+import org.jfugue.player.Player;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.FileOutputStream;
+
+public class MusicPlayer implements IMusicPlayer {
+
+    private final Player player;
+    private Pattern music;
+
+    public MusicPlayer() {
+        player = new Player();
+    }
+
+    public void setMusic(Pattern music) {
+        this.music = music;
+    }
+
+    public void playMusic() throws NullPointerException {
+        if (music == null) {
+            throw new NullPointerException("Pattern music not set yet");
+        }
+        else {
+            player.play(music);
+        }
+    }
+
+    public void saveMusic(File file) throws IOException, NullPointerException {
+        System.out.println(file);
+        if (music == null) {
+            throw new NullPointerException("Pattern music not set yet");
+        }
+        FileOutputStream outStream = new FileOutputStream(file);
+        MidiFileManager.savePatternToMidi(music, outStream);
+        outStream.close();
+    }
+
+    public Pattern getMusic(){
+        return music;
+    }
+
+}
+
+\\==================================================================================================================
+\\============================================ FIM ARQUIVO MUSIC PLAYER ============================================
+\\==================================================================================================================
+
+
+
+
+
+
+
+
+
+
+\\==================================================================================================================
+\\====================================== INICIO DE ARQUIVO TESTE MUSIC PLAYER ======================================
+\\==================================================================================================================
+package Music.musicPlayer;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.jfugue.pattern.Pattern;
+import org.jfugue.player.Player;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import java.io.File;
+
+public class MusicPlayerTest {
+
+    final Pattern MUSIC_PATTERN = new Pattern("A B C I65 R D");
+    final String NO_MUSIC_MESSAGE = "Pattern music not set yet";
+
+    MusicPlayer musicPlayer;
+
+    @BeforeEach
+    void setUp() {
+        musicPlayer = new MusicPlayer();
+    }
+
+    @Test
+    void testSetMusic() {
+        musicPlayer.setMusic(MUSIC_PATTERN);
+        assertEquals(MUSIC_PATTERN, musicPlayer.getMusic());
+    }
+
+    @Test
+    void testPlayMusicEmpty() {
+        Exception exception = assertThrows(NullPointerException.class, () -> musicPlayer.playMusic());
+        String actualMessage = exception.getMessage();
+
+        assertEquals(NO_MUSIC_MESSAGE,actualMessage);
+    }
+
+    @Test
+    void testSaveMusicEmpty() {
+        Exception exception = assertThrows(NullPointerException.class, () -> musicPlayer.saveMusic(new File("")));
+        String actualMessage = exception.getMessage();
+
+        assertEquals(NO_MUSIC_MESSAGE,actualMessage);
+    }
+}
+
+\\==================================================================================================================
+\\========================================= FIM ARQUIVO TESTE MUSIC PLAYER =========================================
+\\==================================================================================================================
+
+
+
+
+
+
+
+
+
+
+\\==================================================================================================================
+\\=========================================== INICIO ARQUIVO MUSIC STATE ===========================================
+\\==================================================================================================================
+package Music.musicState;
+
+import java.util.Random;
+import Music.Enums.NoteEnum;
+
+public class MusicState {
+    public static final int NO_NOTE = -1;
+    protected static final int OCTAVE_SIZE = 12;
+    public static final int DEFAULT_MIN_VOLUME = 0;
+    public static final int DEFAULT_MAX_VOLUME = 127;
+    public static final int DEFAULT_DEFAULT_VOLUME = 32;
+    public static final int DEFAULT_MIN_OCTAVE = 1;
+    public static final int DEFAULT_MAX_OCTAVE = 9;
+    public static final int DEFAULT_DEFAULT_OCTAVE = 5;
+    public static final int DEFAULT_MIN_BPM = 50;
+    public static final int DEFAULT_MAX_BPM = 250;
+    public static final int DEFAULT_DEFAULT_BPM = 100;
+    public static final double DEFAULT_STEP_FACTOR_VOLUME = 2.0;
+    public static final int DEFAULT_STEP_BPM = 50;
+    public static final int DEFAULT_STEP_OCTAVE = 1;
+    public static final int DEFAULT_CURRENT_INSTRUMENT = 0;
+
+
+    private int defaultVolume;
+    private int minVolume;
+    private int maxVolume;
+    private double stepFactorVolume;
+    private int minOctave;
+    private int maxOctave;
+    private int stepOctave;
+    private int defaultOctave;
+    private int minBPM;
+    private int maxBPM;
+    private int stepBPM;
+    private int defaultBPM;
+    private int[] instrumentList;
+    private int defaultInstrument;
+
+    private int currentOctave;
+    private int currentVolume;
+    private int currentBPM;
+    private int currentInstrument;
+    private NoteEnum currentNote;
+
+    {
+        minVolume = DEFAULT_MIN_VOLUME;
+        maxVolume = DEFAULT_MAX_VOLUME;
+
+        minOctave = DEFAULT_MIN_OCTAVE;
+        maxOctave = DEFAULT_MAX_OCTAVE;
+
+        minBPM = DEFAULT_MIN_BPM;
+        maxBPM = DEFAULT_MAX_BPM;
+
+        stepFactorVolume = DEFAULT_STEP_FACTOR_VOLUME;
+        stepBPM = DEFAULT_STEP_BPM;
+        stepOctave = DEFAULT_STEP_OCTAVE;
+
+        currentNote = NoteEnum.NONE;
+    }
+    
+    public MusicState(){
+        defaultVolume = DEFAULT_DEFAULT_VOLUME;
+        defaultOctave = DEFAULT_DEFAULT_OCTAVE;
+        defaultBPM = DEFAULT_DEFAULT_BPM;
+
+        currentInstrument = DEFAULT_CURRENT_INSTRUMENT;
+        currentOctave = defaultOctave;
+        currentVolume = defaultVolume;
+        currentBPM = defaultBPM;
+        instrumentList = getInstrumentRange(0, 127);
+    }
+
+    public void setVolumeConstraints(int minVol, int maxVol, int stepFactVol, int defaultVol) {
+        if (minVol > maxVol)
+            throw new IllegalArgumentException("minVol cannot be bigger than maxVol!");
+        if (minVol < 0)
+            throw new IllegalArgumentException("minVol cannot be smaller than zero!");
+        if (stepFactVol <= 0)
+            throw new IllegalArgumentException("volume factor cannot be smaller or equal to zero!");
+        if (minVol > defaultVol || defaultVol > maxVol)
+            throw new IllegalArgumentException("default volume out of range!");
+        minVolume = minVol;
+        maxVolume = maxVol;
+        stepFactorVolume = stepFactVol;
+        defaultVolume = defaultVol;
+        currentVolume = defaultVol;
+    }
+    public void setOctaveConstraints(int minOct, int maxOct, int stepOct, int defaultOct) {
+        if (minOct > maxOct)
+            throw new IllegalArgumentException("minOct cannot be bigger than maxOct!");
+        if (minOct < 0)
+            throw new IllegalArgumentException("minOct cannot be smaller than zero!");
+        if (stepOct <= 0)
+            throw new IllegalArgumentException("octave step cannot be smaller or equal to zero!");
+        if (minOct > defaultOct || defaultOct > maxOct)
+            throw new IllegalArgumentException("default octave out of range!");
+        minOctave = minOct;
+        maxOctave = maxOct;
+        stepOctave = stepOct;
+        defaultOctave = defaultOct;
+        currentOctave = defaultOctave;
+    }
+    public void setBPMConstraints(int minBpm, int maxBpm, int stepBpm, int defaultBpm) {
+        if (minBpm > maxBpm)
+            throw new IllegalArgumentException("minBpm cannot be bigger than maxBpm!");
+        if (minBpm < 0)
+            throw new IllegalArgumentException("minBpm cannot be smaller than zero!");
+        if (stepBpm <= 0)
+            throw new IllegalArgumentException("bpm step cannot be smaller or equal to zero!");
+        if (minBpm > defaultBpm || defaultBpm > maxBpm)
+            throw new IllegalArgumentException("default bpm out of range!");
+        minBPM = minBpm;
+        maxBPM = maxBpm;
+        stepBPM = stepBpm;
+        defaultBPM = defaultBpm;
+        currentBPM = defaultBpm;
+    }
+
+    public void setInstrumentConstraints(int[] instruments, int defaultInst) {
+        if (instruments.length == 0)
+            throw new IllegalArgumentException("needs to specify at least one instrument!");
+        boolean defaultInArray = false;
+        for (int element : instruments) {
+            if (element == defaultInst) {
+                defaultInArray = true;
+                break;
+            }
+        }
+        if (!defaultInArray)
+            throw new IllegalArgumentException("default has to be in array!");
+        instrumentList = instruments;
+        defaultInstrument = defaultInst;
+        currentInstrument = defaultInst;
+    }
+
+    public void setInstrumentConstraints(int initialInst, int finalInst, int defaultInst) {
+        instrumentList = getInstrumentRange(initialInst, finalInst);
+        defaultInstrument = defaultInst;
+        currentInstrument = defaultInst;
+    }
+    
+    public int getOctave() {
+        return currentOctave;
+    }
+    public int getVolume() {
+        return currentVolume;
+    }
+    public int getBPM() {
+        return currentBPM;
+    }
+    public int getInstrument() {
+        return currentInstrument;
+    }
+    public int getNote() {
+        if (currentNote == NoteEnum.NONE)
+            return NO_NOTE;
+        else
+            return (currentNote.getValue() + (OCTAVE_SIZE*currentOctave));
+    }
+    public void setOctave(int octave) {
+        if (octave <= maxOctave && octave >= minOctave)
+            currentOctave = octave;
+        else
+            currentOctave = defaultOctave;
+    }
+    public void setVolume(int volume) {
+        if (volume <= maxVolume && volume >= minVolume)
+            currentVolume = volume;
+        else
+            currentVolume = defaultVolume;
+    }
+    public void setBPM(int bpm) {
+        if (bpm <= maxBPM && bpm >= minBPM)
+            currentBPM = bpm;
+        else
+            currentBPM = defaultBPM;
+    }
+    public void setInstrument(int instrument) {
+        boolean instInArray = false;
+        for (int element : instrumentList) {
+            if (element == instrument) {
+                instInArray = true;
+                break;
+            }
+        }
+        if (instInArray)
+            currentInstrument = instrument;
+        else
+            currentInstrument = defaultInstrument;
+    }
+    public void setNote(NoteEnum note) {
+        currentNote = note;
+    }
+    public void setRandomNote() {
+        currentNote = NoteEnum.values()[new Random().nextInt(NoteEnum.values().length)];
+    }
+
+    public void increaseOctave() {
+        setOctave(currentOctave + stepOctave);
+    }
+    public void increaseVolume() {
+        setVolume( (int) (currentVolume * stepFactorVolume));
+    }
+    public void increaseBPM() {
+        setBPM(currentBPM + stepBPM);
+    }
+    public void decreaseOctave() {
+        setOctave(currentOctave - stepOctave);
+    }
+    public void decreaseVolume() {
+        setVolume( (int) (currentVolume / stepFactorVolume));
+    }
+    public void decreaseBPM() {
+        setBPM(currentBPM - stepBPM);
+    }
+    public void nextInstrument() {
+        int index = 1;
+        for (int element : instrumentList) {
+            if (element == currentInstrument)
+                break;
+            index++;
+        }
+        if (index < instrumentList.length)
+            currentInstrument = instrumentList[index];
+        else
+            currentInstrument = instrumentList[0];
+    }
+    public void setRandomInstrument() {
+        currentInstrument = new Random().nextInt(instrumentList.length);
+    }
+
+    private int[] getInstrumentRange(int first, int last) {
+        int instArrayLength = last-first+1;
+        int[] instArray = new int[instArrayLength];
+        if (first < 0 || last > 127)
+            throw new IllegalArgumentException("Instruments range is out of MIDI range!");
+        for (int i=0; i<instArrayLength; i++) {
+            instArray[i] = first + i;
+        }
+        return instArray;
+    }
+}
+
+\\==================================================================================================================
+\\=========================================== FIM DE ARQUIVO MUSIC STATE ===========================================
+\\==================================================================================================================
+
+
+
+
+
+
+
+
+
+
+\\==================================================================================================================
+\\======================================= INICIO DE ARQUIVO MUSIC STATE TEST =======================================
+\\==================================================================================================================
+package Music.musicState;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import Music.Enums.NoteEnum;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class MusicStateTest {
+
+    MusicState musicState;
+
+    @BeforeEach
+    void setUp () {
+        musicState = new MusicState();
+    }
+
+    @Test
+    void testMusicStateNote() {
+        int newOctave = 2;
+        NoteEnum note = NoteEnum.A;
+        NoteEnum noNote = NoteEnum.NONE;
+        int newNoteValue = note.getValue() + newOctave * MusicState.OCTAVE_SIZE;
+        int noNoteValue = noNote.getValue();
+        musicState.setNote(note);
+        musicState.setOctave(newOctave);
+        assertEquals(newNoteValue, musicState.getNote());
+        musicState.setNote(noNote);
+        assertEquals(noNoteValue, musicState.getNote());
+    }
+
+    @Test
+    void testMusicStateRandomNote() {
+        int newOctave = 2;
+        musicState.setOctave(newOctave);
+        musicState.setRandomNote();
+        int noteCode = musicState.getNote();
+        int noteValue = noteCode -(newOctave * MusicState.OCTAVE_SIZE);
+        boolean hasElement = false;
+        for (NoteEnum note : NoteEnum.values()){
+            if (note.getValue() == noteValue) {
+                hasElement = true;
+                break;
+            }
+        }
+        assertTrue(hasElement);
+    }
+
+    @Test
+    void testDefaultMusicStateVolume() {
+        assertEquals(MusicState.DEFAULT_DEFAULT_VOLUME, musicState.getVolume());
+    }
+
+    @Test
+    void testMusicStateVolumeChange() {
+        int newVolume = (MusicState.DEFAULT_MAX_VOLUME + MusicState.DEFAULT_MIN_VOLUME) /2;
+        musicState.setVolume(newVolume);
+        assertEquals(newVolume, musicState.getVolume());
+    }
+
+    @Test
+    void testMusicStateDefaultVolumeConstraints() {
+        musicState.setVolume(MusicState.DEFAULT_MAX_VOLUME + 1);
+        assertEquals(musicState.getVolume(), MusicState.DEFAULT_DEFAULT_VOLUME);
+        musicState.setVolume(MusicState.DEFAULT_MIN_VOLUME - 1);
+        assertEquals(MusicState.DEFAULT_DEFAULT_VOLUME, musicState.getVolume());
+    }
+
+    @Test
+    void testMusicStateVolumeConstraintsUnderDefaultValue() {
+        int newMinVolume = 10;
+        int newMaxVolume = 50;
+        int newStepVolume = 2;
+        int underVolume = 9;
+        IllegalArgumentException thrown = assertThrows(
+                IllegalArgumentException.class,
+                () -> musicState.setVolumeConstraints(
+                        newMinVolume,
+                        newMaxVolume,
+                        newStepVolume,
+                        underVolume),
+                "Exception not thrown"
+        );
+        assertEquals("default volume out of range!", thrown.getMessage());
+    }
+
+    @Test
+    void testMusicStateVolumeConstraintsOverDefaultValue() {
+        int newMinVolume = 10;
+        int newMaxVolume = 50;
+        int newStepVolume = 2;
+        int overVolume = 51;
+        IllegalArgumentException thrown = assertThrows(
+                IllegalArgumentException.class,
+                () -> musicState.setVolumeConstraints(
+                        newMinVolume,
+                        newMaxVolume,
+                        newStepVolume,
+                        overVolume),
+                "Exception not thrown"
+        );
+        assertEquals("default volume out of range!", thrown.getMessage());
+    }
+
+    @Test
+    void testMusicStateVolumeConstraintsValidValue() {
+        int newMinVolume = 10;
+        int newMaxVolume = 50;
+        int newStepVolume = 2;
+        int newDefaultVolume = 20;
+        musicState.setVolumeConstraints(
+                newMinVolume,
+                newMaxVolume,
+                newStepVolume,
+                newDefaultVolume);
+        assertEquals(newDefaultVolume, musicState.getVolume());
+        musicState.setVolume(newMinVolume);
+        assertEquals(newMinVolume, musicState.getVolume());
+        musicState.setVolume(newMaxVolume);
+        assertEquals(newMaxVolume, musicState.getVolume());
+    }
+
+    @Test
+    void testMusicStateVolumeConstraintsValue() {
+        int newMinVolume = 70;
+        int newMaxVolume = 50;
+        int newStepVolume = 2;
+        int newDefaultVolume = 60;
+        IllegalArgumentException thrown = assertThrows(
+                IllegalArgumentException.class,
+                () -> musicState.setVolumeConstraints(
+                        newMinVolume,
+                        newMaxVolume,
+                        newStepVolume,
+                        newDefaultVolume),
+                "Exception not thrown"
+        );
+        assertEquals("minVol cannot be bigger than maxVol!", thrown.getMessage());
+    }
+
+    @Test
+    void testMusicStateVolumeConstraintsZeroFactorValue() {
+        int newMinVolume = 10;
+        int newMaxVolume = 50;
+        int newStepVolume = 0;
+        int newDefaultVolume = 20;
+        IllegalArgumentException thrown = assertThrows(
+                IllegalArgumentException.class,
+                () -> musicState.setVolumeConstraints(
+                        newMinVolume,
+                        newMaxVolume,
+                        newStepVolume,
+                        newDefaultVolume),
+                "Exception not thrown"
+        );
+        assertEquals("volume factor cannot be smaller or equal to zero!", thrown.getMessage());
+    }
+
+    @Test
+    void testMusicStateVolumeConstraintsNegativeMinimalValue() {
+        int newMinVolume = -10;
+        int newMaxVolume = 50;
+        int newStepVolume = 0;
+        int newDefaultVolume = 20;
+        IllegalArgumentException thrown = assertThrows(
+                IllegalArgumentException.class,
+                () -> musicState.setVolumeConstraints(
+                        newMinVolume,
+                        newMaxVolume,
+                        newStepVolume,
+                        newDefaultVolume),
+                "Exception not thrown"
+        );
+        assertEquals("minVol cannot be smaller than zero!", thrown.getMessage());
+    }
+
+    @Test
+    void testMusicStateIncreaseVolume() {
+        int newVolume = (int) (MusicState.DEFAULT_DEFAULT_VOLUME * MusicState.DEFAULT_STEP_FACTOR_VOLUME);
+        musicState.increaseVolume();
+        assertEquals(newVolume, musicState.getVolume());
+    }
+
+    @Test
+    void testMusicStateDecreaseVolume() {
+        int newVolume = (int) (MusicState.DEFAULT_DEFAULT_VOLUME / MusicState.DEFAULT_STEP_FACTOR_VOLUME);
+        musicState.decreaseVolume();
+        assertEquals(newVolume, musicState.getVolume());
+    }
+
+    @Test
+    void testDefaultMusicStateOctave() {
+        assertEquals(MusicState.DEFAULT_DEFAULT_OCTAVE, musicState.getOctave());
+    }
+
+    @Test
+    void testMusicStateOctaveChange() {
+        int newOctave = (MusicState.DEFAULT_MAX_OCTAVE + MusicState.DEFAULT_MIN_OCTAVE) /2;
+        musicState.setOctave(newOctave);
+        assertEquals(newOctave, musicState.getOctave());
+    }
+
+    @Test
+    void testMusicStateDefaultOctaveConstraints() {
+        musicState.setOctave(MusicState.DEFAULT_MAX_OCTAVE + 1);
+        assertEquals(musicState.getOctave(), MusicState.DEFAULT_DEFAULT_OCTAVE);
+        musicState.setOctave(MusicState.DEFAULT_MIN_OCTAVE - 1);
+        assertEquals(MusicState.DEFAULT_DEFAULT_OCTAVE, musicState.getOctave());
+    }
+
+    @Test
+    void testMusicStateOctaveConstraintsUnderDefaultValue() {
+        int newMinOctave = 1;
+        int newMaxOCtave = 5;
+        int newStepOctave = 1;
+        int underOctave = 0;
+        IllegalArgumentException thrown = assertThrows(
+                IllegalArgumentException.class,
+                () -> musicState.setOctaveConstraints(
+                        newMinOctave,
+                        newMaxOCtave,
+                        newStepOctave,
+                        underOctave),
+                "Exception not thrown"
+        );
+        assertEquals("default octave out of range!", thrown.getMessage());
+    }
+
+    @Test
+    void testMusicStateOctaveConstraintsOverDefaultValue() {
+        int newMinOctave = 1;
+        int newMaxOCtave = 5;
+        int newStepOctave = 1;
+        int overOctave = 6;
+        IllegalArgumentException thrown = assertThrows(
+                IllegalArgumentException.class,
+                () -> musicState.setOctaveConstraints(
+                        newMinOctave,
+                        newMaxOCtave,
+                        newStepOctave,
+                        overOctave),
+                "Exception not thrown"
+        );
+        assertEquals("default octave out of range!", thrown.getMessage());
+    }
+
+    @Test
+    void testMusicStateOctaveConstraintsValidValue() {
+        int newMinOctave = 1;
+        int newMaxOCtave = 5;
+        int newStepOctave = 1;
+        int newDefaultOctave = 3;
+        musicState.setOctaveConstraints(
+                newMinOctave,
+                newMaxOCtave,
+                newStepOctave,
+                newDefaultOctave);
+        assertEquals(newDefaultOctave, musicState.getOctave());
+        musicState.setOctave(newMinOctave);
+        assertEquals(newMinOctave, musicState.getOctave());
+        musicState.setOctave(newMaxOCtave);
+        assertEquals(newMaxOCtave, musicState.getOctave());
+    }
+
+    @Test
+    void testMusicStateOctaveConstraintsValue() {
+        int newMinOctave = 7;
+        int newMaxOCtave = 5;
+        int newStepOctave = 1;
+        int newDefaultOctave = 6;
+        IllegalArgumentException thrown = assertThrows(
+                IllegalArgumentException.class,
+                () -> musicState.setOctaveConstraints(
+                        newMinOctave,
+                        newMaxOCtave,
+                        newStepOctave,
+                        newDefaultOctave),
+                "Exception not thrown"
+        );
+        assertEquals("minOct cannot be bigger than maxOct!", thrown.getMessage());
+    }
+
+    @Test
+    void testMusicStateOctaveConstraintsZeroFactorValue() {
+        int newMinOctave = 1;
+        int newMaxOCtave = 5;
+        int newStepOctave = 0;
+        int newDefaultOctave = 3;
+        IllegalArgumentException thrown = assertThrows(
+                IllegalArgumentException.class,
+                () -> musicState.setOctaveConstraints(
+                        newMinOctave,
+                        newMaxOCtave,
+                        newStepOctave,
+                        newDefaultOctave),
+                "Exception not thrown"
+        );
+        assertEquals("octave step cannot be smaller or equal to zero!", thrown.getMessage());
+    }
+
+    @Test
+    void testMusicStateOctaveConstraintsNegativeMinimalValue() {
+        int newMinOctave = -1;
+        int newMaxOCtave = 5;
+        int newStepOctave = 1;
+        int newDefaultOctave = 3;
+        IllegalArgumentException thrown = assertThrows(
+                IllegalArgumentException.class,
+                () -> musicState.setOctaveConstraints(
+                        newMinOctave,
+                        newMaxOCtave,
+                        newStepOctave,
+                        newDefaultOctave),
+                "Exception not thrown"
+        );
+        assertEquals("minOct cannot be smaller than zero!", thrown.getMessage());
+    }
+
+    @Test
+    void testMusicStateIncreaseOctave() {
+        int newOctave = MusicState.DEFAULT_DEFAULT_OCTAVE + MusicState.DEFAULT_STEP_OCTAVE;
+        musicState.increaseOctave();
+        assertEquals(newOctave, musicState.getOctave());
+    }
+
+    @Test
+    void testMusicStateDecreaseOctave() {
+        int newOctave = MusicState.DEFAULT_DEFAULT_OCTAVE - MusicState.DEFAULT_STEP_OCTAVE;
+        musicState.decreaseOctave();
+        assertEquals(newOctave, musicState.getOctave());
+    }
+
+    @Test
+    void testDefaultMusicStateBPM() {
+        assertEquals(MusicState.DEFAULT_DEFAULT_BPM, musicState.getBPM());
+    }
+
+    @Test
+    void testMusicStateBPMChange() {
+        int newBPM = (MusicState.DEFAULT_MAX_BPM + MusicState.DEFAULT_MIN_BPM) /2;
+        musicState.setBPM(newBPM);
+        assertEquals(newBPM, musicState.getBPM());
+    }
+
+    @Test
+    void testMusicStateDefaultBPMConstraints() {
+        musicState.setBPM(MusicState.DEFAULT_MAX_BPM + 1);
+        assertEquals(musicState.getBPM(), MusicState.DEFAULT_DEFAULT_BPM);
+        musicState.setBPM(MusicState.DEFAULT_MIN_BPM - 1);
+        assertEquals(MusicState.DEFAULT_DEFAULT_BPM, musicState.getBPM());
+    }
+
+    @Test
+    void testMusicStateBPMConstraintsUnderDefaultValue() {
+        int newMinBPM = 1;
+        int newMaxBPM = 5;
+        int newStepBPM = 1;
+        int underBPM = 0;
+        IllegalArgumentException thrown = assertThrows(
+                IllegalArgumentException.class,
+                () -> musicState.setBPMConstraints(
+                        newMinBPM,
+                        newMaxBPM,
+                        newStepBPM,
+                        underBPM),
+                "Exception not thrown"
+        );
+        assertEquals("default bpm out of range!", thrown.getMessage());
+    }
+
+    @Test
+    void testMusicStateBPMConstraintsOverDefaultValue() {
+        int newMinOctave = 1;
+        int newMaxOCtave = 5;
+        int newStepOctave = 1;
+        int overOctave = 6;
+        IllegalArgumentException thrown = assertThrows(
+                IllegalArgumentException.class,
+                () -> musicState.setBPMConstraints(
+                        newMinOctave,
+                        newMaxOCtave,
+                        newStepOctave,
+                        overOctave),
+                "Exception not thrown"
+        );
+        assertEquals("default bpm out of range!", thrown.getMessage());
+    }
+
+    @Test
+    void testMusicStateBPMConstraintsValidValue() {
+        int newMinBPM = 1;
+        int newMaxBPM = 5;
+        int newStepBPM = 1;
+        int newDefaultBPM = 3;
+        musicState.setBPMConstraints(
+                newMinBPM,
+                newMaxBPM,
+                newStepBPM,
+                newDefaultBPM);
+        assertEquals(newDefaultBPM, musicState.getBPM());
+        musicState.setBPM(newMinBPM);
+        assertEquals(newMinBPM, musicState.getBPM());
+        musicState.setBPM(newMaxBPM);
+        assertEquals(newMaxBPM, musicState.getBPM());
+    }
+
+    @Test
+    void testMusicStateBPMConstraintsValue() {
+        int newMinBPM = 7;
+        int newMaxBPM = 5;
+        int newStepBPM = 1;
+        int newDefaultBPM = 6;
+        IllegalArgumentException thrown = assertThrows(
+                IllegalArgumentException.class,
+                () -> musicState.setBPMConstraints(
+                        newMinBPM,
+                        newMaxBPM,
+                        newStepBPM,
+                        newDefaultBPM),
+                "Exception not thrown"
+        );
+        assertEquals("minBpm cannot be bigger than maxBpm!", thrown.getMessage());
+    }
+
+    @Test
+    void testMusicStateBPMConstraintsZeroFactorValue() {
+        int newMinBPM = 1;
+        int newMaxBPM = 5;
+        int newStepBPM = 0;
+        int newDefaultBPM = 3;
+        IllegalArgumentException thrown = assertThrows(
+                IllegalArgumentException.class,
+                () -> musicState.setBPMConstraints(
+                        newMinBPM,
+                        newMaxBPM,
+                        newStepBPM,
+                        newDefaultBPM),
+                "Exception not thrown"
+        );
+        assertEquals("bpm step cannot be smaller or equal to zero!", thrown.getMessage());
+    }
+
+    @Test
+    void testMusicStateBPMConstraintsNegativeMinimalValue() {
+        int newMinBPM = -1;
+        int newMaxBPM = 5;
+        int newStepBPM = 1;
+        int newDefaultBPM = 3;
+        IllegalArgumentException thrown = assertThrows(
+                IllegalArgumentException.class,
+                () -> musicState.setBPMConstraints(
+                        newMinBPM,
+                        newMaxBPM,
+                        newStepBPM,
+                        newDefaultBPM),
+                "Exception not thrown"
+        );
+        assertEquals("minBpm cannot be smaller than zero!", thrown.getMessage());
+    }
+
+    @Test
+    void testMusicStateIncreaseBPM() {
+        int newBPM = MusicState.DEFAULT_DEFAULT_BPM + MusicState.DEFAULT_STEP_BPM;
+        musicState.increaseBPM();
+        assertEquals(newBPM, musicState.getBPM());
+    }
+
+    @Test
+    void testMusicStateDecreaseBPM() {
+        int newBPM = MusicState.DEFAULT_DEFAULT_BPM - MusicState.DEFAULT_STEP_BPM;
+        musicState.decreaseBPM();
+        assertEquals(newBPM, musicState.getBPM());
+    }
+
+    @Test
+    void testDefaultMusicStateInstrument() {
+        assertEquals(MusicState.DEFAULT_CURRENT_INSTRUMENT, musicState.getInstrument());
+    }
+
+    @Test
+    void testMusicStateInstrumentChange() {
+        int newInstrument = MusicState.DEFAULT_CURRENT_INSTRUMENT + 1;
+        musicState.setInstrument(newInstrument);
+        assertEquals(newInstrument, musicState.getInstrument());
+    }
+
+    @Test
+    void testMusicStateDefaultInstrumentInRangeValidConstraints() {
+        int firstInstrument = 5;
+        int lastInstrument = 32;
+        int defaultInstrument = 10;
+        musicState.setInstrumentConstraints(firstInstrument, lastInstrument, defaultInstrument);
+        assertEquals(defaultInstrument, musicState.getInstrument());
+        musicState.setInstrument(firstInstrument);
+        assertEquals(firstInstrument, musicState.getInstrument());
+        musicState.setInstrument(lastInstrument);
+        assertEquals(lastInstrument, musicState.getInstrument());
+    }
+
+    @Test
+    void testMusicStateDefaultInstrumentInRangeInvalidConstraints() {
+        int firstInstrument = -5;
+        int lastInstrument = 32;
+        int defaultInstrument = 10;
+        IllegalArgumentException thrown = assertThrows(
+                IllegalArgumentException.class,
+                () -> musicState.setInstrumentConstraints(
+                        firstInstrument,
+                        lastInstrument,
+                        defaultInstrument),
+                "Exception not thrown"
+        );
+        assertEquals("Instruments range is out of MIDI range!", thrown.getMessage());
+    }
+
+    @Test
+    void testMusicStateDefaultInstrumentConstraints() {
+        musicState.setInstrument(128);
+        assertEquals(musicState.getInstrument(), MusicState.DEFAULT_CURRENT_INSTRUMENT);
+        musicState.setInstrument(-55);
+        assertEquals(MusicState.DEFAULT_CURRENT_INSTRUMENT, musicState.getInstrument());
+    }
+
+    @Test
+    void testMusicStateInstrumentConstraintsOutOfRange() {
+        int[] newInstruments = {1, 5, 3, 7};
+        int newCurrentInstrument = 95;
+        IllegalArgumentException thrown = assertThrows(
+                IllegalArgumentException.class,
+                () -> musicState.setInstrumentConstraints(
+                        newInstruments,
+                        newCurrentInstrument),
+                "Exception not thrown"
+        );
+        assertEquals("default has to be in array!", thrown.getMessage());
+    }
+
+    @Test
+    void testMusicStateInstrumentConstraintsValidValue() {
+        int[] newInstruments = {1, 5, 3, 7};
+        int newCurrentInstrument = 3;
+
+        musicState.setInstrumentConstraints(
+                newInstruments,
+                newCurrentInstrument);
+        assertEquals(newCurrentInstrument, musicState.getInstrument());
+        musicState.setInstrument(newInstruments[3]);
+        assertEquals(newInstruments[3], musicState.getInstrument());
+        musicState.setInstrument(newInstruments[0]);
+        assertEquals(newInstruments[0], musicState.getInstrument());
+    }
+
+    @Test
+    void testMusicStateInstrumentConstraints() {
+        int[] newInstruments = {};
+        int newCurrentInstrument = 3;
+        IllegalArgumentException thrown = assertThrows(
+                IllegalArgumentException.class,
+                () -> musicState.setInstrumentConstraints(
+                        newInstruments,
+                        newCurrentInstrument),
+                "Exception not thrown"
+        );
+        assertEquals("needs to specify at least one instrument!", thrown.getMessage());
+    }
+
+    @Test
+    void testMusicStateNextInstrument() {
+        musicState.setInstrument(0);
+        for (int instrument = 0; instrument <= 127; instrument++) {
+            assertEquals(instrument, musicState.getInstrument());
+            musicState.nextInstrument();
+        }
+        assertEquals(0, musicState.getInstrument());
+    }
+
+    @Test
+    void testMusicStateRandomInstrument() {
+        musicState.setRandomInstrument();
+        int instrument = musicState.getInstrument();
+        assertTrue(instrument <= 127 && instrument >= 0);
+    }
+}
+
+\\==================================================================================================================
+\\========================================== FIM ARQUIVO MUSIC STATE TEST ==========================================
+\\==================================================================================================================
+
+
+
+
+
+
+
+
+
+
+\\==================================================================================================================
+\\======================================== INICIO DE ARQUIVO TEXT TOKENIZER ========================================
+\\==================================================================================================================
+package Music.tokenizer;
+
+import java.util.List;
+import java.util.ArrayList;
+import Music.Enums.InstructionEnum;
+
+public class TextTokenizer {
+
+    private List<InstructionEnum> tokens;
+
+    public TextTokenizer(String rawText) {
+        tokenizeMusic(rawText);
+    }
+
+    public List<InstructionEnum> getTokens() {
+        return tokens;
+    }
+
+    private void tokenizeMusic(String text) {
+        this.tokens = new ArrayList<>();
+        while (text.length() > 0){
+            boolean foundInstruction=false;
+            for (InstructionEnum instruction : InstructionEnum.values()) {
+                String[] words = instruction.getName();
+                for (String word : words){
+                    if (text.startsWith(word)){
+                        tokens.add(instruction);
+                        text = text.substring(word.length());
+                        foundInstruction=true;
+                        break;
+                    }
+                }
+                if (foundInstruction)
+                    break;
+            }
+            if (!foundInstruction) {
+                text = text.substring(1);
+                tokens.add(InstructionEnum.REPEAT_NOTE);
+            }
+        }
+    }
+}
+
+\\==================================================================================================================
+\\=========================================== FIM ARQUIVO TEXT TOKENIZER ===========================================
+\\==================================================================================================================
+
+
+
+
+
+
+
+
+
+
+\\==================================================================================================================
+\\======================================= INICIO ARQUIVO TEXT TOKENIZER TEST =======================================
+\\==================================================================================================================
+package Music.tokenizer;
+
+import Music.Enums.InstructionEnum;
+import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class TextTokenizerTest {
+
+    @Test
+    void emptyTextTest() {
+        String inputText = "";
+        TextTokenizer tokenizer = new TextTokenizer(inputText);
+        List<InstructionEnum> tokenList = tokenizer.getTokens();
+        List<InstructionEnum> emptyList = new ArrayList<>();
+        assertEquals(emptyList, tokenList);
+    }
+
+    @Test
+    void singleNoteTest() {
+        String inputText = "" + InstructionEnum.A.getName()[0];
+        TextTokenizer tokenizer = new TextTokenizer(inputText);
+        List<InstructionEnum> tokenList = tokenizer.getTokens();
+        List<InstructionEnum> referenceList = new ArrayList<>();
+        referenceList.add(InstructionEnum.A);
+        assertEquals(referenceList, tokenList);
+    }
+
+    @Test
+    void allNoteTest() {
+        StringBuilder inputText = new StringBuilder();
+        List<String> rokenNames = new ArrayList<>();
+        for (InstructionEnum token : InstructionEnum.values()) {
+            rokenNames.add(token.getName()[0]);
+            inputText.append(token.getName()[0]);
+        }
+        TextTokenizer tokenizer = new TextTokenizer(inputText.toString());
+        List<InstructionEnum> tokenList = tokenizer.getTokens();
+        List<String> tokenizedTokenNames = new ArrayList<>();
+        for (InstructionEnum token : tokenList)
+            tokenizedTokenNames.add(token.getName()[0]);
+        assertEquals(rokenNames, tokenizedTokenNames);
+    }
+
+    @Test
+    void invalidNoteTest() {
+        int invalidNoteCode = 80;
+        boolean noteIsValid = true;
+        while (noteIsValid) {
+            noteIsValid = false;
+            for (InstructionEnum token : InstructionEnum.values()) {
+                for (String word : token.getName()) {
+                    if (Character.toString((char) invalidNoteCode).equals(word)) {
+                        noteIsValid = true;
+                        invalidNoteCode++;
+                        break;
+                    }
+                }
+                if (noteIsValid)
+                    break;
+            }
+        }
+        String invalidString = Character.toString((char) invalidNoteCode);
+        String inputText = "" + invalidString;
+        TextTokenizer tokenizer = new TextTokenizer(inputText);
+        List<InstructionEnum> tokenList = tokenizer.getTokens();
+        List<InstructionEnum> referenceList = new ArrayList<>();
+        referenceList.add(InstructionEnum.REPEAT_NOTE);
+        assertEquals(referenceList, tokenList);
+    }
+
+}
+
+\\==================================================================================================================
+\\======================================= FIM DE ARQUIVO TEXT TOKENIZER TEST =======================================
+\\==================================================================================================================
