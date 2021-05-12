@@ -6,7 +6,9 @@ import org.jfugue.pattern.Pattern;
 import Music.musicPlayer.MusicPlayer;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.event.ActionEvent;
 import java.io.*;
+import java.net.URI;
 
 
 import static javax.swing.JOptionPane.ERROR_MESSAGE;
@@ -18,6 +20,7 @@ public class UserInterface {
     private final String NO_FILE_WARNING_MESSAGE = "Nenhum texto foi carregado pois nenhum arquivo foi selecionado";
     private final String CANCELLED_SAVE_WARNING_MESSAGE = "Operação Cancelada, a música não foi salva";
     private final String TEXT_ERROR = "O texto inserido deve ter entre 0 e 2048 caracteres";
+    private final String DEFINITION_LINK = "http://www.inf.ufrgs.br/~jpricarte/doc/enunciado.pdf";
 
     private JPanel jPanel;
     private JButton generateMusicButton;
@@ -29,6 +32,7 @@ public class UserInterface {
     private JButton importTextButton;
     private JTextArea textArea;
     private JSpinner octaveSelector;
+    private JButton helpButton;
 
     private final MusicPlayer musicPlayer;
     private Music music;
@@ -40,6 +44,7 @@ public class UserInterface {
         generateMusicButton.addActionListener(ActionEvent -> generateMusicFromInfos());
         playMusicButton.addActionListener(ActionEvent -> playMusic());
         saveMusicButton.addActionListener(ActionEvent -> saveMusic());
+        helpButton.addActionListener(ActionEvent -> openDefinition());
     }
 
     private void createUIComponents() {
@@ -58,6 +63,14 @@ public class UserInterface {
 
         volumeSelector = new JSlider(MusicState.DEFAULT_MIN_VOLUME,
                 MusicState.DEFAULT_MAX_VOLUME, MusicState.DEFAULT_DEFAULT_VOLUME);
+    }
+
+    private void openDefinition() {
+        try {
+            java.awt.Desktop.getDesktop().browse(URI.create(DEFINITION_LINK));
+        } catch (IOException e) {
+            JOptionPane.showInternalMessageDialog(null, e.getMessage(), "Erro!",ERROR_MESSAGE);
+        }
     }
 
     private void openTextFile() {
